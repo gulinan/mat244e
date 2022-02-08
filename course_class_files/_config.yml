@@ -6,7 +6,7 @@
 #######################################################################################
 # Book settings
 title                       : Statistics  # The title of the book. Will be placed in the left navbar.
-author                      : Gul Inan  # The author of the book
+author                      : Gül İnan  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo                        : images/logo.png  # A path to the book logo
 

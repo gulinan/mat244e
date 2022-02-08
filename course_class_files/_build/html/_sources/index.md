@@ -1,3 +1,6 @@
+![](images/itu_header.jpeg)
+
+
 # Course Overview
 
 This [jupyter book](https://jupyterbook.org) will be the central place to find all course material for the course as well as host your project progress in the future.
