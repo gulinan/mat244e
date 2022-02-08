@@ -1,0 +1,20 @@
+#######################################################################################
+# A default configuration that will be loaded for all jupyter books
+# See the documentation for help and more options: 
+# https://jupyterbook.org/customize/config.html
+
+#######################################################################################
+# Book settings
+title                       : Statistics  # The title of the book. Will be placed in the left navbar.
+author                      : Gul Inan  # The author of the book
+copyright                   : "2022"  # Copyright year to be placed in the footer
+logo                        : logo.png  # A path to the book logo
+
+repository:
+  url: https://github.com/gulinan/mat244e
+  path_to_book: course_class_files
+  branch: main
+html:
+  use_repository_button: true
+  use_edit_page_button: true
+  use_issues_button: true

@@ -1,0 +1,8 @@
+jupyter-book
+ghp-import
+numpy
+pandas
+matplotlib
+sphinx
+ipywidgets
+

@@ -1,0 +1,16 @@
+name: mat244e
+channels:
+  - default
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - sphinx
+  - ipywidgets
+  - pip:
+    - jupyter-book
+    - ghp-import
+
+
