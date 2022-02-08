@@ -5,18 +5,10 @@ parts:
   chapters:
   - file: class/instructor
   - file: class/syllabus
-    sections:
-    - file: class/syllabus_readings
-    - file: class/syllabus_participation
-    - file: class/syllabus_deliverables
-    - file: class/software-tools
-    - file: class/software-tools_create-update-pages
-- caption: Course Projects
+- caption: LAB MATERIALS
   chapters:
-  - file: projects/contacts
-  - file: projects/appfolio/aboutus
+  - file: labs/Week_01/aboutus
     sections:
-    - file: projects/appfolio/update1
-    - file: projects/appfolio/update2
-    - file: projects/appfolio/update3
+    - file: labs/Week_01//update1
+
   
