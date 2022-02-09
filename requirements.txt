@@ -5,4 +5,7 @@ pandas
 matplotlib
 sphinx
 ipywidgets
-
+scipy
+statsmodels
+scikit-learn
+seaborn

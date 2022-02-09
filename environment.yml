@@ -8,7 +8,11 @@ dependencies:
   - pandas
   - matplotlib
   - sphinx
+  - scipy
   - ipywidgets
+  - statsmodels
+  - scikit-learn
+  - seaborn
   - pip:
     - jupyter-book
     - ghp-import
