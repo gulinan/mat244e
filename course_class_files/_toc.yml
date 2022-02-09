@@ -7,6 +7,7 @@ parts:
   - file: class/syllabus
 - caption: LAB MATERIALS
   chapters:
+  - file: labs/Week_00/aboutus
   - file: labs/Week_01/aboutus
     sections:
     - file: labs/Week_01//update1
