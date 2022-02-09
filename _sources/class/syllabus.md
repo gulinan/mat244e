@@ -213,8 +213,9 @@ https://odek.itu.edu.tr/en/code-of-honor/ethics-in-university-life.
   
 ## Student with Special Needs 
 
-<p align="justify">  If you are a student with special needs, let me know
-that how we can adjust the course environment and materials in accordance with your needs. 
+<p align="justify"> I truly care about that every student in my class feels that she/he involved in this class equally. 
+If you are a student with special needs, please, let me know
+that how we can adjust the course environment, materials, and course assessment methods in accordance with your needs. 
 Furthermore, you are also invited to contact the office of students with special needs at:<p>
 
 http://engelsiz.itu.edu.tr/.
