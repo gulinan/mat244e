@@ -151,7 +151,7 @@ Please read the information below as a reference for how this class will be cond
 
  ### Midterm date: Will be announced later. 
 
-```{note}
+```{warning}
 * `Student studies, namely, homework and exam papers which are not written well, do not follow a proper mathematical writing language, and are hard to review, will get "0" credit for that question.`
 * `Please see an example for **a good homework** on Ninova.`
 * `Please read the general advice given at:`
@@ -194,7 +194,7 @@ by a short phrase summarizing the subject of your e-mail).
 
 Feel free to send me e-mails. But be sure you that give me enough time to get back to you. 
 
-```{note}
+```{warning}
 * `In the past, I have had pretty much tolerance for e-mail messages sent after business hours and at weekends. But, now, due to pandemic, I should say that I may not appreciate these e-mails anymore.`
 * `Lastly, e-mails asking for grade grubbing at the end of the semester are not welcomed.`
 ```
