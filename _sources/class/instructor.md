@@ -1,6 +1,6 @@
 # Instructor Information
 
-**Instructor:** Gül İnan
+**Instructor:** [Gül İnan](https://gulinan.github.io/)
 
 **E-mail:** inan@itu.edu.tr
 

@@ -14,7 +14,7 @@ body {
 
 
 
-<h1 <span style="color:#08245c">MAT244E</span> </h1>
+<h1 <span style="color:#08245c">MAT244E <br> STATISTICS </span> </h1>
 
 </body>
 </html>
