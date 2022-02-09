@@ -152,7 +152,7 @@ Please read the information below as a reference for how this class will be cond
  ### Midterm date: Will be announced later. 
 
 ```{note}
-* `Student studies, namely, homework and exam papers which are not written well, does not follow a proper mathematical writing language, and are hard to review, will get "0" credit for that question.`
+* `Student studies, namely, homework and exam papers which are not written well, do not follow a proper mathematical writing language, and are hard to review, will get "0" credit for that question.`
 * `Please see an example for **a good homework** on Ninova.`
 * `Please read the general advice given at:`
   http://ma117.math.metu.edu.tr/course-info/general-advice/.
