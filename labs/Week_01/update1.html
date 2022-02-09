@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Update 1 - Project Updates &#8212; Spring 2022</title>
+    <title>&lt;no title&gt; &#8212; Spring 2022</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -122,17 +122,10 @@
    Week 00
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="aboutus.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="normal_dist.html">
    Week 01
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="simple">
-  </ul>
  </li>
 </ul>
 
@@ -222,27 +215,7 @@
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-we-have-done-so-far">
-   What we have done so far:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obstacles">
-   Obstacles:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#future-tasks">
-   Future Tasks:
-  </a>
- </li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
 
             </nav>
@@ -253,7 +226,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Update 1 - Project Updates</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -262,27 +235,7 @@
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-we-have-done-so-far">
-   What we have done so far:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obstacles">
-   Obstacles:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#future-tasks">
-   Future Tasks:
-  </a>
- </li>
+                            <ul class="simple visible nav section-nav flex-column">
 </ul>
 
                         </nav>
@@ -292,52 +245,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="update-1-project-updates">
-<h1>Update 1 - Project Updates<a class="headerlink" href="#update-1-project-updates" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction:<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Appfolio is a property management company that helps customers manage their rental properties. The capstone team is working with Appfolio to help process invoices from the customers using machine learning. These invoices will then be processed by the model we develop to find the exact price needed to be covered or charged. This would be a big step towards automating some tasks of the accountant role.</p>
-<ul class="simple">
-<li><p>To help us compute the model, we are utilizing receipt data from the ICDAR competition from 2019 (<a class="reference external" href="https://rrc.cvc.uab.es/?ch=13&amp;com=introduction">https://rrc.cvc.uab.es/?ch=13&amp;com=introduction</a>)  This dataset, which is public, offers us the chance to look at and understand the most important parts of a receipt, including the total value, and gives us a chance to generate a model to recognize it from an image.</p></li>
-</ul>
-<p><img alt="receipt1" src="https://github.com/DSCapstone2021/ucsb-ds-capstone-2021.github.io/blob/main/ucsb_ds_capstone_projects_2021/projects/appfolio/receipt1.png?raw=true" /></p>
-</div>
-<div class="section" id="what-we-have-done-so-far">
-<h2>What we have done so far:<a class="headerlink" href="#what-we-have-done-so-far" title="Permalink to this headline">¶</a></h2>
-<p><img alt="ocr_data" src="https://github.com/DSCapstone2021/ucsb-ds-capstone-2021.github.io/blob/main/ucsb_ds_capstone_projects_2021/projects/appfolio/ocr_data.PNG?raw=true" /></p>
-<p><em>Example of data we were provided in the competition</em></p>
-<ul class="simple">
-<li><p>Clean out the data. There were some repeated images and missing labels for those repeated images.</p></li>
-<li><p>We trained a brute force approach that assumes we have the transcripts of the invoices and finds the total using predefined rules.</p></li>
-<li><p>We started designing and training our first neural network for which we feed the images of the invoices (converted to pytorch tensors) and we try to get the total value.</p></li>
-</ul>
-</div>
-<div class="section" id="obstacles">
-<h2>Obstacles:<a class="headerlink" href="#obstacles" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Getting Data Access: The data from Appfolio can be used to identify companies and their locations. Previously, data had to be only anonymous for individuals. An addendum to the Privacy Act in 2020 included businesses to the act. Due to this, we need to wait for anonymity within addresses and company names and potentially dates as well before we can be allowed to access the Appfolio data. In the meanwhile, we are utilizing the ICDAR data to get an insight into our tasks so that when we receive our actual data, we can hit the ground running.</p></li>
-</ul>
-</div>
-<div class="section" id="future-tasks">
-<h2>Future Tasks:<a class="headerlink" href="#future-tasks" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Determine which ML models or implementations would work best for our objectives:</p>
-<ul>
-<li><p>RNN/Faster RNN</p></li>
-<li><p>YOLO</p></li>
-<li><p>Detectron 2</p></li>
-</ul>
-</li>
-<li><p>Implement an Natural Language Processing approach for extracting important keywords</p></li>
-<li><p>Completing the “Total” amount extraction task with a very high level of accuracy.</p></li>
-<li><p>Since different models require different metadata, create different pipelines for the different models.</p></li>
-<li><p>Creation of the input text file with coordinates. From an image, create a text file containing every word/label and a set of coordinates to identify its location. Focusing on the text with the relevant information (including total, the values associated with total, etc)</p></li>
-<li><p>Extracting Company, Date, and Address as well from invoice</p></li>
-<li><p>Add another validation level into our “Total” amount extraction algorithm that uses the other numbers present and separately calculates the total.</p></li>
-</ul>
-</div>
-</div>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
