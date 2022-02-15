@@ -23,7 +23,7 @@ MAT 221/E MIN DD.
 
 ## Course Logistics
 
-<p align="justify"> Each week, before the classes, a Zoom meeting invitation will be sent you via your ITU email to join the class on Mondays or Thursdays. Lectures will be automatically recorded and you will have a chance re-watch the videos after the class on 
+<p align="justify"> This is a hybrid course. For online attendees, each week, before the classes, a Zoom meeting invitation will be sent you via your ITU email to join the class on Mondays or Thursdays. Lectures will be automatically recorded and you will have a chance re-watch the videos after the class on 
 <a href="https://ninova.itu.edu.tr/">Ninova</a>.  Lecture materials (notes, assignments, grades etc) will be uploaded on <a href="https://ninova.itu.edu.tr/">Ninova</a>. <p>
 
 
@@ -149,11 +149,10 @@ Please read the information below as a reference for how this class will be cond
  | 1 midterm exam     |  40%                         |  
  | 1 final exam       |  40%                         |     
 
- ### Midterm date: Will be announced later. 
+ ### `Midterm date: April 20, 2022 (Wednesday) at 15:30.` 
 
-```{warning}
+```{important}
 * `Student studies, namely, homework and exam papers which are not written well, do not follow a proper mathematical writing language, and are hard to review, will get "0" credit for that question.`
-* `Please see an example for **a good homework** on Ninova.`
 * `Please read the general advice given at:`
   http://ma117.math.metu.edu.tr/course-info/general-advice/.
 ```
@@ -194,7 +193,7 @@ by a short phrase summarizing the subject of your e-mail).
 
 Feel free to send me e-mails. But be sure you that give me enough time to get back to you. 
 
-```{warning}
+```{important}
 * `In the past, I have had pretty much tolerance for e-mail messages sent after business hours and at weekends. But, now, due to pandemic, I should say that I may not appreciate these e-mails anymore.`
 * `Lastly, e-mails asking for grade grubbing at the end of the semester are not welcomed.`
 ```
