@@ -8,8 +8,13 @@ parts:
 - caption: LAB MATERIALS
   chapters:
   - file: labs/Week_00/index
-  - file: labs/Week_01/normal_dist
+  - file: labs/Week_01/index
     sections:
-    - file: labs/Week_01/
+    - file: labs/Week_01/normal_dist
+    - file: labs/Week_01/normal_widget_source_function
+    - file: labs/Week_01/clt
+    - file: labs/Week_01/chisquare
+    - file: labs/Week_01/tdist
+
 
   
