@@ -45,6 +45,8 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -54,7 +56,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 01" href="../Week_01/normal_dist.html" />
+    <link rel="next" title="Week 01" href="../Week_01/index.html" />
     <link rel="prev" title="Course Syllabus" href="../../class/syllabus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -127,10 +129,42 @@
    Week 00
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Week_01/normal_dist.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week_01/index.html">
    Week 01
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_01/normal_dist.html">
+     Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_01/normal_widget_source_function.html">
+     Calculating Probabilities Under Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_01/clt.html">
+     Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_01/chisquare.html">
+     Chi-square distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_01/tdist.html">
+     T distribution
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -244,6 +278,7 @@ study on  the following resources:</p>
 <li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">10 minutes to pandas</a>, and</p></li>
 <li><p><a class="reference external" href="https://wesmckinney.com/book/">Python for Data Analysis</a>.</p></li>
 </ul>
+<p>For each lab material, you can start a live session by pressing the <i class="fas fa-rocket" title="rocket"></i> button at the top-right and selecting a hosted runtime environment such as <a class="reference external" href="https://mybinder.org/">Binder</a>, <a class="reference external" href="https://colab.research.google.com/?utm_source=scs-index">Colab</a> or <a class="reference external" href="https://thebe.readthedocs.io/en/latest/">TheBe</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -278,7 +313,7 @@ study on  the following resources:</p>
             <p class="prev-next-title">Course Syllabus</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../Week_01/normal_dist.html" title="next page">
+    <a class='right-next' id="next-link" href="../Week_01/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Week 01</p>

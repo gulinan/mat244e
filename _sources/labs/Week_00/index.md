@@ -7,3 +7,5 @@ study on  the following resources:
 - [Introduction to NumPy and Matplotlib by Sebastian Raschka](https://sebastianraschka.com/blog/2020/numpy-intro.html),
 - [10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html), and
 - [Python for Data Analysis](https://wesmckinney.com/book/).
+
+For each lab material, you can start a live session by pressing the <i class="fas fa-rocket" title="rocket"></i> button at the top-right and selecting a hosted runtime environment such as [Binder](https://mybinder.org/), [Colab](https://colab.research.google.com/?utm_source=scs-index) or [TheBe](https://thebe.readthedocs.io/en/latest/). 

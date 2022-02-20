@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central Limit Theorem &#8212; Spring 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chi-square distribution" href="chisquare.html" />
+    <link rel="prev" title="Calculating Probabilities Under Normal Distribution" href="normal_widget_source_function.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Spring 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Course Overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  COURSE INFORMATION
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../class/instructor.html">
+   Instructor Information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../class/syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  LAB MATERIALS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week_00/index.html">
+   Week 00
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Week 01
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="normal_dist.html">
+     Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="normal_widget_source_function.html">
+     Calculating Probabilities Under Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chisquare.html">
+     Chi-square distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tdist.html">
+     T distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/labs/Week_01/clt.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/gulinan/mat244e"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/gulinan/mat244e/issues/new?title=Issue%20on%20page%20%2Flabs/Week_01/clt.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/gulinan/mat244e/edit/main/course_class_files/labs/Week_01/clt.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gulinan/mat244e/main?urlpath=lab/tree/course_class_files/labs/Week_01/clt.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gulinan/mat244e/blob/main/course_class_files/labs/Week_01/clt.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Central Limit Theorem</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="central-limit-theorem">
+<h1>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Permalink to this headline">¶</a></h1>
+<p>We would like to investigate the sampling distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> under 1) normal and 2) non-normal distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import required libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s start with an example where <strong>the true population distribution is standard normal</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#np.random.seed(1773) </span>
+
+<span class="c1">##an example for clt when the true pop is standard normal</span>
+
+<span class="k">def</span> <span class="nf">clt_norm_true</span><span class="p">(</span><span class="n">Sim_no</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span><span class="p">):</span>
+    
+    <span class="c1">##input paramaters (arguments)</span>
+    <span class="c1">##Sim_no: Number of simulations (experiments)</span>
+    <span class="c1">##n: Number of data points that will be selected from the true population without replacement.</span>
+    
+    <span class="c1">##Fixed values</span>
+    <span class="c1">##true population size</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+    <span class="c1">##true population mean</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">##true population sd</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># Generate true population under normal distribution</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c1">##Simulation settings</span>
+    
+    <span class="c1"># select sim_no number of samples of size n from true population</span>
+    <span class="c1"># create an empty data size of sim_no by n</span>
+
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Sim_no</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Sim_no</span><span class="p">):</span> 
+        <span class="n">sample_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="c1"># select one sample of size n from true pop.</span>
+        <span class="c1">#repeat this process Sim_no times and store the data</span>
+        <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_data</span> 
+
+    <span class="c1">#calculate the row.means (calculate mean across the columns, axis = 1)</span>
+    <span class="c1">#returns a vector of sim_no by 1</span>
+    
+    <span class="n">sample_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1">## figure settings</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    
+    <span class="c1"># Plot the histogram of true population</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;True population with $\mu=</span><span class="si">%.1f</span><span class="s1">,\sigma^2=</span><span class="si">%.1f</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">*</span><span class="n">sigma</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Plot the histogram of sample means</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Sampling distribution of $\bar</span><span class="si">{X}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\bar</span><span class="si">{x}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="c1">#plt.ylim(0, 2) ######i need to work on upper ylim and coordinates of plt.text later######</span>
+    <span class="c1">#add a text</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span>
+          <span class="s2">&quot;Mean = </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Standard error = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_means</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sample_means</span><span class="p">)))</span>
+    <span class="c1">#side-by-side</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsample_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Number of samples drawn&quot;</span><span class="p">)</span>
+<span class="n">sample_size_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Sample size&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">clt_norm_true</span><span class="p">,</span> <span class="n">Sim_no</span> <span class="o">=</span> <span class="n">nsample_wid</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sample_size_wid</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d246ab1c675544ae9e0e04e283c37974"}
+</script></div>
+</div>
+<p>Let’s start with an example where the <strong>true population distribution is exponential distribution</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#np.random.seed(1773) </span>
+
+<span class="c1">##an example for clt when the true pop is exponential</span>
+
+<span class="k">def</span> <span class="nf">clt_exp_true</span><span class="p">(</span><span class="n">Sim_no</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span><span class="p">):</span>
+    
+    <span class="c1">##input paramaters (arguments)</span>
+    <span class="c1">##Sim_no: Number of simulations (experiments)</span>
+    <span class="c1">##n:Number of data points that will be selected from the true population without replacement.</span>
+    
+    <span class="c1">##Fixed values</span>
+    <span class="c1">##true population size</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+    <span class="c1">##true population scale </span>
+    <span class="n">lam</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#default</span>
+
+    <span class="c1"># Generate true population under normal distribution</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">lam</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c1">##Simulation settings</span>
+    
+    <span class="c1"># select sim_no number of samples of size n from true population</span>
+    <span class="c1"># create an empty data size of sim_no by n</span>
+
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Sim_no</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Sim_no</span><span class="p">):</span> 
+        <span class="n">sample_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="c1"># select one sample of size n from true pop.</span>
+        <span class="c1">#repeat this process Sim_no times and store the data</span>
+        <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_data</span> 
+
+    <span class="c1">#calculate the row.means (calculate mean across the columns, axis = 1)</span>
+    <span class="c1">#returns a vector of sim_no by 1</span>
+    
+    <span class="n">sample_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1">## figure settings</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    
+    <span class="c1"># Plot the histogram of true population</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;True population with $\lambda=</span><span class="si">%.1f</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lam</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+        
+    <span class="c1"># Plot the histogram of sample means</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Sampling distribution of $\bar</span><span class="si">{X}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\bar</span><span class="si">{x}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="c1">#plt.ylim(0, 2) ######i need to work on upper ylim and coordinates of plt.text later######</span>
+    <span class="c1">#add a text</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span>
+          <span class="s2">&quot;Mean = </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Standard error = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_means</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sample_means</span><span class="p">)))</span>
+    <span class="c1">#side-by-side</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsample_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Number of samples drawn&quot;</span><span class="p">)</span>
+<span class="n">sample_size_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Sample size&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">clt_exp_true</span><span class="p">,</span> <span class="n">Sim_no</span> <span class="o">=</span> <span class="n">nsample_wid</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sample_size_wid</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "b68e86c62fae40748b1a654bd2f4e3e6"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Turning these widgets into a Dashboard kept as a future work.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"9bfcc299482e46b8900c2da1b0aa73f8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d5cb8b52d3d3493ebfc7cbfe184ba7d1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "cc9a11d69e1d4d88a52d30441077d4ca": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Number of samples drawn", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_9bfcc299482e46b8900c2da1b0aa73f8", "max": 1000, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 10, "style": "IPY_MODEL_d5cb8b52d3d3493ebfc7cbfe184ba7d1", "value": 500}}, "8cc532dc00dc4145904e023deaed960e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5bd7e6a3574046e69529b620d8e28197": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "7b5c53b5ea3847beb132b899c062c1c1": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Sample size", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_8cc532dc00dc4145904e023deaed960e", "max": 100, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_5bd7e6a3574046e69529b620d8e28197", "value": 10}}, "da80fbbeb3434f288b922e6503de9a5b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d246ab1c675544ae9e0e04e283c37974": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_cc9a11d69e1d4d88a52d30441077d4ca", "IPY_MODEL_7b5c53b5ea3847beb132b899c062c1c1", "IPY_MODEL_8b4906110ddf4bc7bf729a4ccf40e129"], "layout": "IPY_MODEL_da80fbbeb3434f288b922e6503de9a5b"}}, "ea3956521ab641bfa730b3f172ecd181": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8b4906110ddf4bc7bf729a4ccf40e129": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_ea3956521ab641bfa730b3f172ecd181", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 504x504 with 2 Axes>", "image/png": "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\n"}}]}}, "ec30a8bc7ea64343b61eaee468501c34": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "16ccc05ec7e54fcea226f57a7c5b8f61": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "73fca323825544df8816d34a37b4f0d3": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Number of samples drawn", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_ec30a8bc7ea64343b61eaee468501c34", "max": 1000, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 10, "style": "IPY_MODEL_16ccc05ec7e54fcea226f57a7c5b8f61", "value": 500}}, "e5c62bc663b34ffba156502e71b9562b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "80f44e24eede4306a601b039f442b8c5": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "2868e96d7934440a86951aa32082e957": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Sample size", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_e5c62bc663b34ffba156502e71b9562b", "max": 100, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_80f44e24eede4306a601b039f442b8c5", "value": 10}}, "94e0c45a6d98431a9508d2b2ed3ee5e9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b68e86c62fae40748b1a654bd2f4e3e6": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_73fca323825544df8816d34a37b4f0d3", "IPY_MODEL_2868e96d7934440a86951aa32082e957", "IPY_MODEL_ba34c8e6e7104a419c0c43e3d78f44fe"], "layout": "IPY_MODEL_94e0c45a6d98431a9508d2b2ed3ee5e9"}}, "1c588223c91f44ddb43bf5247a196efd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ba34c8e6e7104a419c0c43e3d78f44fe": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_1c588223c91f44ddb43bf5247a196efd", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 504x504 with 2 Axes>", "image/png": "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\n"}}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gulinan/mat244e",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/Week_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="normal_widget_source_function.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Calculating Probabilities Under Normal Distribution</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chisquare.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chi-square distribution</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Gül İnan<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

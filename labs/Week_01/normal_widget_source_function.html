@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculating Probabilities Under Normal Distribution &#8212; Spring 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Central Limit Theorem" href="clt.html" />
+    <link rel="prev" title="Normal Distribution" href="normal_dist.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Spring 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Course Overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  COURSE INFORMATION
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../class/instructor.html">
+   Instructor Information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../class/syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  LAB MATERIALS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week_00/index.html">
+   Week 00
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Week 01
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="normal_dist.html">
+     Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Calculating Probabilities Under Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="clt.html">
+     Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chisquare.html">
+     Chi-square distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tdist.html">
+     T distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/labs/Week_01/normal_widget_source_function.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/gulinan/mat244e"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/gulinan/mat244e/issues/new?title=Issue%20on%20page%20%2Flabs/Week_01/normal_widget_source_function.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/gulinan/mat244e/edit/main/course_class_files/labs/Week_01/normal_widget_source_function.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gulinan/mat244e/main?urlpath=lab/tree/course_class_files/labs/Week_01/normal_widget_source_function.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gulinan/mat244e/blob/main/course_class_files/labs/Week_01/normal_widget_source_function.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Calculating Probabilities Under Normal Distribution</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="calculating-probabilities-under-normal-distribution">
+<h1>Calculating Probabilities Under Normal Distribution<a class="headerlink" href="#calculating-probabilities-under-normal-distribution" title="Permalink to this headline">¶</a></h1>
+<p>We can use the widget at the bottom to calculate the probabilities under normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normal_dist_widget</span><span class="p">(</span><span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="s2">&quot;Lower&quot;</span><span class="p">,</span> <span class="n">bound</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
+    
+    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+    
+    <span class="c1">#start off plotting </span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+    <span class="c1"># for pdf curve</span>
+    <span class="c1">#generate synthetic data to plot the pdf</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">),</span> 
+    <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\mu=</span><span class="si">%.1f</span><span class="s1">,\sigma^2=</span><span class="si">%.1f</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="o">*</span><span class="n">sd</span><span class="p">))</span>
+
+    <span class="c1"># arrange x-axis limits based on the min and max values in the data</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="c1">#instead of default tickmarks, define yours.</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># arrange upper limit of y-axis max values in the pdf values (y&#39;s min value is always 0).</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">))</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x|$\mu=</span><span class="si">%.1f</span><span class="s1">,\sigma^2=</span><span class="si">%.1f</span><span class="s1">$)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="o">*</span><span class="n">sd</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probabilities under Normal Distribution&#39;</span><span class="p">)</span>
+        
+
+    <span class="k">if</span> <span class="n">tail</span> <span class="o">==</span> <span class="s2">&quot;Lower&quot;</span><span class="p">:</span>
+
+        <span class="c1">#calculate the cumulative probability under given distribution</span>
+        <span class="n">cum_prob</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">bound</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">)</span>
+
+        <span class="c1">#for shading area defined by the cumulative probability</span>
+        <span class="c1">#specifically generate values between int(np.min(x1)) and upper_bound with increments 0.01</span>
+        <span class="c1">#with np.arange(), data comes alread sorted (it creates an increasing series).</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">bound</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+
+        <span class="c1">#go to https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html for more info</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+        
+        <span class="c1">#add a text, where x coordinate is a bit less than min x1 and y-coordinate is based on the peak point of the curve.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">))</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span>
+          <span class="s2">&quot;$Pr(X \leq </span><span class="si">%.3f</span><span class="s2">)=</span><span class="si">%.3f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bound</span><span class="p">,</span> <span class="n">cum_prob</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+    <span class="k">elif</span> <span class="n">tail</span> <span class="o">==</span> <span class="s2">&quot;Upper&quot;</span><span class="p">:</span>
+        
+        <span class="c1">#calculate the cumulative probability under given distribution</span>
+        <span class="n">complementary_prob</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">bound</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">)</span>
+
+        <span class="c1">#for shading area defined by the cumulative probability</span>
+        <span class="c1">#specifically generate values between lower_bound and int(np.max(x1)) with increments 0.01</span>
+        <span class="c1">#with np.arange(), data comes alread sorted (it creates an increasing series).</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bound</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+
+        <span class="c1">#go to https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html for more info</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+        
+        <span class="c1">#add a text, where x coordinate is a bit less than min x1 and y-coordinate is based on the peak point of the curve.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">))</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span>
+                     <span class="s2">&quot;$Pr(X \geq </span><span class="si">%.3f</span><span class="s2">)=</span><span class="si">%.3f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bound</span><span class="p">,</span> <span class="n">complementary_prob</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+     
+    <span class="k">else</span><span class="p">:</span>
+        
+        <span class="c1">#calculate the interval probability under given distribution</span>
+        <span class="n">interval_prob</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">)</span>
+        
+        <span class="c1">#for shading area defined by the interval probability</span>
+        <span class="c1">#specifically generate values between lower_bound and upper_bound value with increments 0.01</span>
+        <span class="c1">#with np.arange(), data comes alread sorted (it creates an increasing series).</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+        
+        <span class="c1">#add a text, where x coordinate is a bit less than min x1 and y-coordinate is based on the peak point of the curve.</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sd</span><span class="p">))</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span>
+         <span class="s2">&quot;$Pr(</span><span class="si">%.3f</span><span class="s2"> \leq$ X $\leq </span><span class="si">%.3f</span><span class="s2">)=</span><span class="si">%.3f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">interval_prob</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Mean&quot;</span><span class="p">)</span>
+<span class="c1">#display(mu_wid)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sd_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Sd&quot;</span><span class="p">,</span> <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
+<span class="c1">#display(sd_wid)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tail_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lower&#39;</span><span class="p">,</span> <span class="s1">&#39;Upper&#39;</span><span class="p">,</span> <span class="s1">&#39;Middle&#39;</span><span class="p">],</span> <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Lower&#39;</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Find Area:&#39;</span><span class="p">)</span>
+<span class="n">bound_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;a:&#39;</span><span class="p">,</span> <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">)</span>
+<span class="n">interval_wid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatRangeSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.96</span><span class="p">,</span> <span class="mf">1.96</span><span class="p">],</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;a$&lt;$X$&lt;b$:&#39;</span><span class="p">,</span> <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the instructions how the widget is working:</p>
+<ol class="simple">
+<li><p>For calculating Pr(X &lt; a), select “Lower” and pick a value “a”,</p></li>
+<li><p>For calculating Pr(X&gt;a), select “Upper” and pick a value “a”,</p></li>
+<li><p>For calculating Pr(a&lt;X&lt;b), select “Middle” and pick “a” and “b” values.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">normal_dist_widget</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu_wid</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">sd_wid</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">tail_wid</span><span class="p">,</span> <span class="n">bound</span> <span class="o">=</span> <span class="n">bound_wid</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="n">interval_wid</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "eec8fda696f74e829eebf3442a1e72ab"}
+</script></div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"b46b0184ae2543f5a85b1f9219da75fc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "703a3258e77449a198d1139edeea5f4a": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "7df1c38a10934378a1971586abd8156d": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Mean", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_b46b0184ae2543f5a85b1f9219da75fc", "max": 50, "min": -50, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_703a3258e77449a198d1139edeea5f4a", "value": 0}}, "0ca70a2dfa5046f1804d82f99b99dada": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9a96e6b49bf84d6ea80ee1470ec3fd9d": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "96a8a7b441654c8aaada03f3e06c7544": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "Sd", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_0ca70a2dfa5046f1804d82f99b99dada", "max": 30.0, "min": 0.1, "orientation": "horizontal", "readout": true, "readout_format": ".1f", "step": 0.1, "style": "IPY_MODEL_9a96e6b49bf84d6ea80ee1470ec3fd9d", "value": 1.0}}, "5f81939ae389488e9834d7de5054c03d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ff878cfd10764b30bff42a70cb786a15": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "3e0ca196139d451a85ee7228279a4fef": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["Lower", "Upper", "Middle"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "Find Area:", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_5f81939ae389488e9834d7de5054c03d", "style": "IPY_MODEL_ff878cfd10764b30bff42a70cb786a15"}}, "79c3428ddda8433b859f875a63522ef7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e8f04b4f8ae34c18bd1f03dbf42f97a1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "d1712db0cf3742e584b280510d0d5ccd": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "a:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_79c3428ddda8433b859f875a63522ef7", "max": 50.0, "min": -50.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_e8f04b4f8ae34c18bd1f03dbf42f97a1", "value": 0.0}}, "52d9a51939ca4510902124f5fafa1394": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c7083011d493479eb6c4fdd39b65a4fe": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "06ddce04b79c427ab47a6f9a54f07feb": {"model_name": "FloatRangeSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatRangeSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatRangeSliderView", "continuous_update": true, "description": "a$<$X$<b$:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_52d9a51939ca4510902124f5fafa1394", "max": 50.0, "min": -50.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_c7083011d493479eb6c4fdd39b65a4fe", "value": [-1.96, 1.96]}}, "bd87b566a8df4d74a9cf93d420c4b341": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "eec8fda696f74e829eebf3442a1e72ab": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_7df1c38a10934378a1971586abd8156d", "IPY_MODEL_96a8a7b441654c8aaada03f3e06c7544", "IPY_MODEL_3e0ca196139d451a85ee7228279a4fef", "IPY_MODEL_d1712db0cf3742e584b280510d0d5ccd", "IPY_MODEL_06ddce04b79c427ab47a6f9a54f07feb", "IPY_MODEL_fc034265fd52434c9750b42c895f6c45"], "layout": "IPY_MODEL_bd87b566a8df4d74a9cf93d420c4b341"}}, "59ac39c62b554e03810c95d0eafd8638": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fc034265fd52434c9750b42c895f6c45": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_59ac39c62b554e03810c95d0eafd8638", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 576x576 with 1 Axes>", "image/png": "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XvUqzAwzo6ioiKqqKr75zW+e9XGf+9znuO6666iqqgLA3bngggv48Ic/fMp2jz/+ODNmzBjXPpPx9a9/ndWrVzN9+nQ2btzIY489lpLHpGKbT37yk3z2s5+ls7Nz4k9wks9juFtvvfXkzzjxsWjRogntdyKvu4jIGbl7Tnxs3LjRM8WcOXP81ltv9fr6eq+trfX3ve99bma+bdu2UbcfHBz0UCjkc+bM8ccee+yU+3784x/7zJkzvbm52d3d9+3b5xUVFf6xj30s6bqGhoa8v79/1PvuueceLyoq8jvvvNP37Nnj73//+720tNSPHDky5v7G85hUbePuvnHjRr/99tuTft5nM5Hnfsstt/j69eu9vr7+5EdTU1PS+51I2yIi7u7AFh8jEwMP5VR9ZEq4V1dXO+APPfTQydsaGhoc8G9/+9teV1fngN99993+ile8wqdNm+Z33XWX33vvvT537lyPRqOn7C8Sifi6dev8ox/9qDc0NPjq1av9bW9727jraWxs9O9///t+0003eUVFhT/88MOjbnf55Zf73/3d351y29q1a/3mm28ec9/jeUyqtnF3/9SnPuUvfvGLx6xnoiby3G+55RY///zzJ73fibQtIuJ+5nDXsHyKbd26FYCLL7745G3Hjh0DYOHChezYsQOAL37xi/zjP/4ju3fv5oYbbuCxxx5j48aNmNkp+ysoKOBjH/sYd9xxB9dddx2rV6/mrrvuGrP9aDTKM888wy233MLll1/OokWL+Nd//VcWL17MT37yE1784hef9phwOMzWrVu55pprTrn9mmuu4cknnxy1nfE8JlXbJFx++eVs2rSJvr6+0+r53Oc+R1lZ2Rk/RhvunshzT6itrWXJkiWsXr2am266idra2pS/PiIiE6FwT7GtW7eyZMkSKisrAaipqeFDH/oQVVVVXH311Wzfvp3p06dz7733njy+Pm/ePI4cOcKSJUtG3edNN91ENBqlq6uLX/ziF5SUlIy63fe//30WLlzIS1/6Up555hne9ra3cfDgQfbv389tt93G1VdfTXFx8WmPa2lpIRKJsHDhwlNuX7hwIQ0NDaO2NZ7HpGqbhCVLljA4OMiJEydOq+e9730v27dvP+PHZZddlpLnDnDFFVfw3e9+l9/97nd861vfoqGhgauuuorW1tYpee4iIskoCrqAXLNt2zYaGhooKysjEong7rzxjW/k7rvvZvr06ezYsYPrrruOtWvXnvK4vr6+0/7JJ3zgAx9gaGiI1tZWCgrGfj82d+5cli1bxo4dO2hoaKC+vp4TJ06wcuVKioqy/0c9Y8YMgFF77hUVFVRUVKStlte+9rWnfH/llVeyZs0avve97502AVJEJN3Uc0+xbdu28eEPf5jt27dTXV1Nb28vd999N8uXLwdg+/btvOxlLzvtcfPnz6e9vf202z/1qU/x85//nKeeeorS0lJuv/32Mdt+/etfz7PPPsvx48f54Ac/SHV1Na9//euZP38+N954I9/5znfo7u4ete3CwkIaGxtPub2xsXHUGeDjfUyqtkloa2sDODkqMtxEh+Un8txHU1ZWxvnnn8/Bgwen5LmLiCRD4Z5Chw4doq2tjauvvpq1a9eydOnSU3raoVCImpoaLr300tMe+4IXvIA9e/accttdd93FF77wBX71q19xySWX8M///M985Stfobe394x1LF68mHe9613ce++9tLS0cN9991FVVcVXv/pVtm3bdtr2JSUlbNy4kYceeuiU2x966CGuuuqqUdsYz2NStU3Crl27WLp06agjHBMdlp/Icx9Nf38/+/btY/HixVPy3EVEkjLWTLts+8iE2fL33nuvA97S0jLq/U8++aQXFBR4d3f3afft3LnTCwoKTj72/vvv95KSEv/pT396cpu+vj5ftGiR33bbbaPuv7m52ffu3XvGj1AoNOpj77nnHi8uLvZvfetbvmfPHv/gBz/opaWlfvjw4ZPbfO1rX/P169cn9ZhUbePu/o53vMPf9a53jVr/ZEzkuX/kIx/xRx55xGtra/3pp5/266+/3svLy6fsuYuIjIROhUuPm2++2VevXj3m/d/4xjdOCYiRrrzySr/99tt906ZNXlpaOmqIf/nLX/YlS5aMer76xz/+cQfO+DHWqXDu7nfccYevXLnSS0pK/NJLL/VHH330lPtvueUWj70fHP9jUrVNX1+fz5o1y5966qkx65+MZJ/7m9/8Zl+8eLEXFxf7kiVL/E1vepPv3r076f2OdxsRkZHOFO4Wuz/7XXbZZb5ly5agy5iU3/3ud3zoQx9iz549FBYWBl1ORrnjjjv41a9+xYMPPhh0KSIiGcHMtrr76ccb0TH3jHLttdfyvve97+R58fK84uJivva1rwVdhohIVlDPXUREJAup5y4iIpJHFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMCCXczu9bM9ptZtZndfIbt/srM3MwuS2d9IiIi2Szt4W5mhcAdwGuBDcBbzGzDKNuVAx8CnklvhSIiItktiJ775UC1u9e6exi4B7hhlO0+A3wR6E9ncSIiItkuiHBfCtQN+/5Y/LaTzOxSYLm735/OwkRERHJBUdAFjGRmBcBtwDvHse17gPcArFixYmoLE5GT3J0/7WviD3ubGIxEuapqHq+7aAklRZqjK5IJggj348DyYd8vi9+WUA5cADxiZgCLgPvM7A3uvmX4jtz9TuBOgMsuu8ynsmgRienuH+QDdz/LI/ubIVxEUUEBP9t6jLseP8Q3376RZXNnBl2iSN4L4m32ZmCdma02sxLgJuC+xJ3u3unu8919lbuvAp4GTgt2EUm//sEI7/jOJh7d30L3oxs48tVXU/ibq/nGWy+lrq2Xv/nWMzR1aZqMSNDSHu7uPgS8H/g9sBf4qbvvNrNPm9kb0l2PiIzfp369h21HO+h44AW0Pb0aogVMKzFee+Fivv/uK2juHuBD92wnEtVAmkiQAjlA5u4PuPs57l7l7p+N3/ZJd79vlG1frl67SPAe2d/E3ZuOEtpSRcdzi0+7/5Llc/jUG87nqdpWvvfk4fQXKCInafaLiJzVYCTKZ36zB+sppeXhc8bc7sbLlvHScyr5jz8coD0UTmOFIjKcwl1EzuqezXXUNIfofOQ8iI79b8PM+MT15xEKR/jan6rTWKGIDKdwF5EzGopE+eYjNUQa59C+e8FZtz9nYTl/eclS7t50lDb13kUCoXAXkTO6/7l6jnX0EdpaBdi4HvPel62hbzCiY+8iAVG4i8gZ3fX4Iegqpf25heN+zLqF5Vx93gJ++PQRwkPRKaxOREajcBeRMe2t72LnsU56tq9kvL32hLdeuZLWUJg/7G2cmuJEZEwKdxEZ008212FeQMf2pWffeISXrqtkyezp3LO57uwbi0hKKdxFZFQDQxH++9nj9B1cSKSvJOnHFxYYN162nMcONnO8o28KKhSRsSjcRWRUj+xvprNvkIF9yya8jzdduhR3eGBnfQorE5GzUbiLyKh++1w9Fi6mY//8Ce9j5bxSLlw6m988p3AXSSeFu4icZmAowkN7mggdWHjGRWvG4/qLFrOjroO6tt4UVSciZ6NwF5HTPFHdQig8xOCh09eQT9b1F8b2cb967yJpo3AXkdM88FwDNlREx/55k97X8oqZXLB0Fg/t0SlxIumicBeRU0Sizh/3NtF7cAFEClOyz1euX8CzR9t1MRmRNFG4i8gpdh3vpL03TOTY2deRH69XnLuAqMOfDzanbJ8iMjaFu4ic4tEDzeDQvnfis+RHumjZHCpKS3h4X1PK9ikiY1O4i8gpHj3QzFDzbKJ901K2z8IC4+XnVPLogWYiUU/ZfkVkdAp3ETmps3eQZ4+2Ez5cmfJ9v/zcBbT3DrK9riPl+xaRUyncReSkJ2paiDr0HUp9uL9kbWyY/6malpTvW0ROpXAXkZP+fKAZGyqi58iclO+7orSEcxeV81Rta8r3LSKnUriLyElP1bTSd2Qe+NT8a7iqaj5bDrczMBSZkv2LSIzCXUQAaOzq50hbL9GGiilr40VV8xgYivLs0Y4pa0NEFO4iEvd0fLi8p3byq9KN5fLVFRQYPFmjoXmRqaRwFxEAnjnUhg0W0Vc/a8ramD2jmAuXzuZphbvIlFK4iwgAT9e00lc3F9ymtJ0rq+bxbF07/YM67i4yVRTuIkJLzwC1LSGijVM3JJ/wwpUVDEacncc6p7wtkXylcBcRNh1qA6D38NRNpku4dOVcALYcaZvytkTylcJdRNh0qA2LFBI6NnvK26ooLWFNZSnbjrRPeVsi+UrhLiJsO9rOQP1siKbnX8LGFXPZeqQdd60zLzIVFO4iea5/MMLu411EGuemrc3LVs2lvXeQ2pZQ2toUyScKd5E8t/tEJxF3BhvmpK3NjfHj7lsPa2heZCoo3EXyXGK1uM5Dc9LW5pr5ZcyeUcxWHXcXmRIKd5E89+zRDrxnBtHQ9LS1WVBgbFw5VzPmRaaIwl0kz2070kH/sTlpb/cFy+dQ0xyiq38w7W2L5DqFu0gea+zqp76rD29N32S6hIuWzwFglxazEUk5hbtIHkscb5+K67efzYVLY+fU7zyucBdJNYW7SB57tq4dogX0nZi6i8WMpaK0hOUVM9h5rCPtbYvkOoW7SB7bfrSDoeZZECkMpP2Lls1hR5167iKppnAXyVPRqPPcsS7CDVO/5OxYLlo6m+MdfbT2DARWg0guUriL5Kkjbb30Dg7hbQGG+7I5gI67i6Sawl0kT+2KB2r30fQfb0+4YOkszOA5zZgXSSmFu0ie2nWiE6IFDDSVB1ZD+fRi1swv1aQ6kRRTuIvkqV3HuxhqKU/bleDGcvGyOew41qkrxImkkMJdJA+5OzvrOgk3Bjckn3Dhstk0dw/Q2KVJdSKponAXyUPH2vvoHhgMdDJdwvlLYjXsre8KuBKR3KFwF8lDu0/EJrD11AUf7ucujh3z36NwF0kZhbtIHtp1vAvc6G8IbjJdwqzpxayomMmeEwp3kVRRuIvkoV0nOom0lQW2Mt1IGxbPUs9dJIUU7iJ5JjGZbiDAlelG2rBkFodbQ/QMDAVdikhOULiL5Jmm7gHaesPQFvxM+YQNi2fhDvsb1HsXSQWFu0ieSRzb7q3PrJ47oOPuIimicBfJM3vjvePe48FPpktYPHs6c2YW67i7SIoo3EXyzP6GbgjNwMPFQZdykpnFJtWp5y6SEgp3kTyz90Q3fRlwCtxIGxbPYl9DN0ORaNCliGQ9hbtIHgkPRalp7oGODAz3JbMYGIpyqCUUdCkiWU/hLpJHapp7iLgz1JI5M+UTTk6q03F3kUlTuIvkkX3xyXTddZnXc6+qLKOksEDhLpICCneRPLKvvhuiBQy2lQZdymmKCwtYU1nKgYbuoEsRyXoKd5E8srehm6HWMvDM/NNfv6icA409QZchkvUy8y9cRKbE3hNdhJszb0g+4ZyF5Rzv6KO7fzDoUkSymsJdJE+0hcI09wxgnZkb7ucuitWm3rvI5CjcRfJEYjJdX33mzZRPOGdhLNz367i7yKQo3EXyxL76WGCGTmRuz33pnBmUlhRyoFHhLjIZCneRPLG/oRsGSoiGpgVdypgKCox1C8vVcxeZJIW7SJ7Y29DFQGM5YEGXckbnLipXz11kkhTuInkgGnX2N3QTacvcIfmEcxaW0xoK09w9EHQpIllL4S6SB+raexkYiuLtmR/u60/OmFfvXWSiFO4ieeBg/NSy3vrsCXcddxeZOIW7SB442BQL976msoArObv5ZdOYV1qinrvIJCjcRfLAwaZu6J2GDxQHXcq4nLOwnP0Kd5EJU7iL5IGDjT30N2X+kHzC+kXlHGjoJhr1oEsRyUoKd5EcF406Bxp78I7MH5JPWL+onFA4wvGOvqBLEclKCneRHHe8o4+BoQjRjuzpuSeWodVxd5GJUbiL5Ljq+GS6UH329NzXLojVmqhdRJKjcBfJcQebYr3fgSyYKZ8we0YxC8qnKdxFJkjhLpLjDjb2QN80ov0lQZeSlLULyk6ewiciyVG4i+S4g009DDRnT689Ye2CMmqaenDXjHmRZE0o3M2s1MwKU12MiKSWu3OgoYdoFs2UT1i7oIzugSEau7TGvEiyxhXuZlZgZn9jZvebWROwD6g3sz1m9iUzWzu1ZYrIRNR39tM7OJRVM+UTNKlOZOLG23N/GKgCPgoscvfl7r4AeAnwNPBFM3vbeBs1s2vNbL+ZVZvZzaPc/14ze87MtpvZ42a2Ybz7FpHnJY5Z957Izp47QHWTTocTSVbROLe72t0HR97o7m3Az4Gfm9m41rWMD+ffAbwaOAZsNrP73H3PsM1+7O7/Gd/+DcBtwLXjrFVE4g7GzxPPptXpEirLpjFrepEm1YlMwLh67qMF+0S2ibscqHb3WncPA/cAN4zYV9ewb0sBzagRmYDqph7oLyHal10z5QHMjHULyzUsLzIB4+25Y2bnEgvhpfGbjgP3ufveJNtcCtQN+/4YcMUo7b0P+DBQArxyjJreA7wHYMWKFUmWIZL7DjR2Z+VM+YS1lWX8YW9j0GWIZJ3xTqj7F2I9bAM2xT8MuHu0Y+ap4O53uHsV8C/AJ8bY5k53v8zdL6usrJyKMkSyVmKmfKQ9i8N9QRmtoTDtoXDQpYhklfH23N8NnD9y6N3MbgN2A19Ios3jwPJh3y+L3zaWe4BvJLF/EQGaugfoCQ9BZ/Ydb09YuzA+qa65hxeWVgRcjUj2GO9s+SiwZJTbF8fvS8ZmYJ2ZrTazEuAm4L7hG5jZumHfXg8cTLINkbx3sDF2rLqvIYt77pWx2hPPRUTGZ7w9938A/mhmB3n+ePkKYC3w/mQadPchM3s/8HugEPiOu+82s08DW9z9PuD9ZnY1MAi0A+9Ipg0ReX5N+d7G7A33pXNmMKO4UJPqRJI0rnB399+Z2TnEZroPn1C32d0jyTbq7g8AD4y47ZPDvv5QsvsUkVNVN/XAYBHR0LSgS5mwggJjTWUp1c0Kd5FkjHu2vLtHiS1YcwozW+TuDSmtSkQmrbY5xGBrGbG5r9lr3YIyNh1qC7oMkaySigvH3JWCfYhIilU39cTDPbutXVDGic5+egaGgi5FJGtMOtzd/fpUFCIiqdMzMERzzwDWUxp0KZOWWIa2RsfdRcZt0uFuZn+bikJEJHVq48eowy250HOPncqnSXUi45eKYflPpWAfIpJCtc0hAEL12d9zXzlvJkUFpkl1IkkY14Q6M9s51l3AwtSVIyKpUNvcAw6DHTODLmXSigsLWDW/VOe6iyRhvLPlFwKvIXbO+XAGPJnSikRk0mqaQ0S7Z0KkMOhSUqKqslRXhxNJwnjD/TdAmbtvH3mHmT2SyoJEZPKqm3qy+oIxI62pLOOPe5sYjEQpLkzF0USR3DbeS76+290fH+O+v0ltSSIyGdGoc6glBN3Zf7w9oaqyjKGoU9fWG3QpIllBb4FFcszxjj7CkSjRjlzqucfeqNTEJwqKyJkp3EVyTG1L7syUT6iaH3ujUqsZ8yLjonAXyTGJABzIgXPcE2bPLGZeacnJU/xE5MySDncze+XwzyKSWWqbQxAuItpbEnQpKVVVWUaNeu4i4zKRnvuXR3wWkQxS09xDOAcuGDPSmsrSk4ccROTMJjMsn1v/OURyxMGGEJGO3DnenrCmspS2UJj2UDjoUkQyno65i+SQnoEhmkP90JU7x9sTqirjk+paNDQvcjYKd5Eccig+4WygJRd77vGrw2lSnchZKdxFckiiV9vbkHs99+VzZ1BcaJoxLzIOEwn3xJhYdyoLEZHJq2kOxS4Y0579F4wZqaiwgJXzSjVjXmQckg53d3/p8M8ikjlqm3ty6oIxI62ZX6qFbETGQcPyIjnkYGOIcA4eb09YU1nG0bZehiLRoEsRyWgKd5EcEbtgTA90597x9oSqylIGI05de1/QpYhktLOGu5m92sy+ZWaXxL9/z5RXJSJJq+/qJxyJEmnP7Z47QI2u7S5yRuO5nvu7gL8HPmFmFcAlU1qRiExIIvBCOThTPqEqfnW42FkBC4MtRiSDjWdYvtvdO9z9H4FrgBdOcU0iMgHPXzAmd3vuc2aW6AIyIuMwnnC/P/GFu98MfH/qyhGRiaptCcFgEdHQtKBLmVJrKnU6nMjZnDXc3f1Xia/N7FZ3/9rUliQiE1HT1EO4tZRcv+zDmvll6rmLnMV4jrkP90kzmwFUANuAe9y9PfVliUiyDjaGiHbMC7qMKVe1oJSfbAnT0RtmzszcuqytSKokeyqcA/3A74HlwJNmdnHKqxKRpPSGh2jq6ce7cvd4e8Ka+VpjXuRskg33fe5+i7v/zN0/BtwAfGUK6hKRJCSGqcMtuTtTPmFNYsa8jruLjCnZcG8xs42Jb9z9AFCZ2pJEJFmJCWah+tzvuS+vmBm7gEyLeu4iY0n2mPsHgXvMbCvwHHARcCjlVYlIUmpPXjAm98O9uLCAFRUztZCNyBkk1XN39x3EFrG5O37Tw8BbUlyTiCSptiVEtGdGzl4wZqQ1lWXquYucQbI9d9x9gNi57/efbVsRSY/qxp68ON6eUFVZxiP7mxiKRCkq1CUyREbSX4VIlotGPTYsnwcz5RPW6AIyImc0qXA3s8VmltvLYYlkuIaufgYiESId+dRz14x5kTOZbM/9B8A+M/tyKooRkeQlZsr3NuZPz70qfnU4rVQnMrqkj7kP5+5Xm5kBG1JUj4gkKRFwA83503OfM7OEitKS+NXhRGSkSYU7gLs7sDsFtYjIBNQ298BgEZGe/DpCtmZ+KTVN6rmLjGbc4W5m5xJbkW5p/KbjwH3uvncqChOR8alpDjHYlvsXjBlpTWUpf9rXFHQZIhlpXMfczexfgHuI/ffYFP8w4G4zu3nqyhORsznY2MNQW/4cb0+oqiyjpSdMZ99g0KWIZJzx9tzfDZzv7qf8FZnZbcSG5L+Q6sJE5Ox6w0M0dvdDd/4cb09Yc3JSXQ8vWDE34GpEMst4Z8tHgSWj3L44fp+IBOBQfJW2wdZ8DPfYaIWuDidyuvH23P8B+KOZHQTq4retANYC75+CukRkHBLB1pMHF4wZaUXFTIoKTOe6i4xiXOHu7r8zs3OAyzl1Qt1md49MVXEicma1zT3gMJQHF4wZqbiwgBXzZupcd5FRjHu2vLtHgadH3m5mi9y9IaVVici41DaH8NAMfCg/Lhgz0pr5ZTrXXWQUqVhb/q4U7ENEJqC6qSevFq8ZqaqylMMtvUSiHnQpIhll0uHu7tenohARSY577IIxnkcXjBmpqrKMcCTKsfbeoEsRyShaxEYkSzV09dM/FME78zfc15y8gEyIlfPy93UQGUmL2IhkqcREsr6m/B2WT5zrXqMZ8yKn0CI2IlkqEWh9jfkb7hWlJcyZWaxz3UVG0CI2IlmqtjkEQ4V5d8GYkaoqy3Suu8gIWsRGJEvVNPcQac+/C8aMtGZ+KY8caA66DJGMokVsRLJUdWOIgRatqb6msox7tx6jq3+QWdOLgy5HJCNMehEbEUm/vnCE+q4+6F4edCmBGz5j/pLlc4ItRiRDpGIRGxFJs8QFYyJ5uOzsSFXDrg4nIjFJh7uZvXL4ZxFJv8SSqz0n8nemfMKKipkUFpjWmBcZZiI99y+P+CwiaVbTFL/Ua5t67iVFBayomKlz3UWGmcywfH5P0RUJUG1LD+TxBWNGWjO/VD13kWF0zF0kC9U2hxhoVq89oWpBGYdaQ7qAjEicwl0ky7g71U09RDp0vD1hzfxSwkNRTnT0BV2KSEZQuItkmcauAfoGI5DHV4MbKbHGfLWOu4sAEwv3xF9PdyoLEZHxSZzyNdCqnntC1bBz3UVkAuHu7i8d/llE0qsmfo57qF4994SK0hJmzyjWue4icRqWF8kyNU09WKSQSPf0oEvJGGbGmkrNmBdJULiLZJnalpAuGDOKNfPLdK67SJzCXSTL1DT10N+s4+0jVS0opal7gO7+waBLEQlcUuFuZs+Z2Y/M7F/M7LVmtszMPj5VxYnIqfoHI7HTvbp1vH2kNfNjb3gS6+6L5LNke+4vA74F9AE3AbuA61JdlIiM7lBLCAeineq5j6QZ8yLPG/clXwHcvQ14JP6Bma0DPpHyqkRkVIng0kz5062YN5MCQ8fdRUh+WP6c4d+7+0HgopRWJCJjOnmOe4vCfaRpRYWsqJipnrsISfbcgW+aWRVwHNgJTAd2mdlMd+9NeXUicoqa5h7onY4PJvunmx/WVGrGvAgkPyz/CgAzWwFcDFwS/7zdzKLufm7KKxSRk2qbQwy06Hj7WNbML+WJ6haiUaegQKcKSv4aV7jHw3ykHfEPiJ1wW25ms9y9K1XFicjz3J3q5hCR9qVBl5Kx1lSWMTAU5XhHH8srZgZdjkhgxttz/x7gnL5qxsjrK34X+P4kaxKRUTR1D9AbHoIu9dzHcnLGfEtI4S55bVzhnhiOF5HgJI4lh1s1mW4siavD1Tb38LJzKgOuRiQ4yc6W3zDKbS9PVTEiMrbELPCeE+q5j2V+WQnl04s0Y17yXrKL2Pw0vjqdmdkMM/sa8PmpKExETlXTrAvGnI2ZUaUZ8yJJh/sVwHLgSWAzcAJ4cbKNmtm1ZrbfzKrN7OZR7v+wme0xs51m9kczW5lsGyK5prY5RKRDF4w5G10dTiT5cB8ktvTsDGLnuB9y92gyOzCzQuAO4LXABuAtowz3Pwtc5u4XAT8D/i3JOkVyTuyCMTrefjZVlWU0dPUTGhgKuhSRwCQb7puJhfsLgb8gFsz3JrmPy4Fqd6919zBwD3DD8A3c/eFhi+I8DSxLsg2RnNI/GOF4Rx/WrePtZ7NmfuwNkC4gI/ks2XB/t7t/0t0H3b3e3W8A7ktyH0uBumHfH4vfNmabwG9Hu8PM3mNmW8xsS3Nzc5JliGSPw62xC8bEruMuZ1K1IPYGSMfdJZ+NK9zNzADcfcvI+9z9B8O3SSUzextwGfCl0e539zvd/TJ3v6yyUqe9SO46OVO+Xj33s1l58gIy6rlL/hpvz/1hM/vAyJXqzKzEzF5pZt8D3jHOfR0nNikvYVn8tlOY2dXAx4E3uPvAOPctkpNqdY77uE0rKmTZ3JknXzORfDTeFequBd4F3G1mq4EOYpPqCoAHgf9w92fHua/NwLr4fo4Tuy783wzfwMxeAHwTuNbdm8a5X5GcVdMc0gVjkqAZ85Lvxvuf4lvu/nYzKyE2030+0OfuHck26O5DZvZ+4PdAIfAdd99tZp8Gtrj7fcSG4cuAe+Oj/Ufd/Q3JtiWSK2qae3SZ1yRUVZbxdG2rLiAjeWu84b7RzJYAf0tsnfkBoMDMKgDcvS2ZRt39AeCBEbd9ctjXVyezP5Fc5u5UN+qCMclYU1lK/2CU+q5+ls6ZEXQ5Imk33nD/T+CPwBpgK6euouHx20VkCjR2DdA7qAvGJGPN/OfXmFe4Sz4a14Q6d/9/7n4esSH0Ne6+etiHgl1kCh1s6gagv0nhPl5VC2KHMGqaNKlO8lNS57m7+99PVSEiMrrqeED16jS4cassm0b5tCJqtZCN5KlkF7ERkTSrburBBouIhKYFXUrWMDPNmJe8pnAXyXDVTT0MtpahC8YkZ01lmc51l7ylcBfJcAcbexho0ZB8sqoqSznR2U9vWBeQkfyjcBfJYO2hMG29YUwz5ZNWVZmYMa+heck/CneRDFYdH1aODctLMtYtjL1mibMNRPKJwl0kgyVmyvccLw+4kuyzcl4pRQXGwUYdd5f8o3AXyWDVTT1YpIChTi3EkqziwgJWzy/loM51lzykcBfJYNVNPUQ6NFN+otYtLDs5+iGSTxTuIhnsYGOPVqabhLULyjnSGqJ/MBJ0KSJppXAXyVC94SFOdPZpTflJWLegjKjDIa1UJ3lG4S6SoWqaYoEUaVe4T9TzM+Y1NC/5ReEukqGqm2OncPWcULhP1Or5pRQYVDfqdDjJLwp3kQxV3dQDboRbS4MuJWtNKypk1bzSk+sFiOQLhbtIhqpu6sG7Z0JUf6aTsXZBmc51l7yj/xoiGaq6qYf+Rg3JT9baBWUcagkxGIkGXYpI2ijcRTJQeCjK4ZZevFPhPlnrFpYxFHWOtGrGvOQPhbtIBjrSGiLijnco3Cdr3YLY0r0ampd8onAXyUAn15Sv15ryk1VVWYaZToeT/KJwF8lAiXAfaNZM+cmaUVLIsrkzFO6SVxTuIhmourkHQjPwwaKgS8kJ6xaUc1DnukseUbiLZKD9Dd2aKZ9C6xaUUdsSYkgz5iVPKNxFMsxQJEpNU4hoh463p8raBWWEh6LUtfcFXYpIWijcRTLM4dZeBqNRvF3hnirrFsZeS13+VfKFwl0kwxyIHxsOnVC4p8raBYkLyOi4u+QHhbtIhtnf0A2OruOeQmXTilgyezrVOtdd8oTCXSTDHGzqhp6Z+FBh0KXklKoFZTodTvKGwl0kw+xv6KavUUPyqbZuQTnVTT1Eox50KSJTTuEukkH6ByMcaunVZLopsH5RGX2DEerae4MuRWTKKdxFMkhtc4ioO1GFe8qtXzQLgH0NmlQnuU/hLpJBErO5ezRTPuXOWRhbY36/wl3ygMJdJIPEZsqb1pSfAjNLilhRMVPhLnlB4S6SQQ40duOdpRDVn+ZUOGdhOfsauoIuQ2TK6T+ISAbZ39BDX4OG5KfKuYvKOdzaS/9gJOhSRKaUwl0kQ/SGh2IzuTsV7lNl/aJyIlHXMrSS8xTuIhniYHz1tEirwn2qnLso9trquLvkOoW7SIbYH19Tvvu4wn2qrJpXSklRwcnXWiRXKdxFMsTBxm4sUsBg+8ygS8lZRYUFrK0sU89dcp7CXSRD7G/sYai9DNyCLiWnnbuoXOEuOU/hLpIh9tV3M9CkIfmptn5ROQ1d/XT2DgZdisiUUbiLZID2UJim7n7oULhPtXPik+p0vrvkMoW7SAbYWx8LmoHGWQFXkvtOzpjXpDrJYQp3kQywJx7uPccU7lNt0azpzJpepAvISE5TuItkgL313Vj/NKK904IuJeeZGecumqVJdZLTFO4iGWBvfRf9jTreni7rF5VzoKEbdw+6FJEpoXAXCdhgJMrBxh6GWjQkny7rF5XTPTDE8Y6+oEsRmRIKd5GA1TaHGIxGoV3hni5ahlZyncJdJGCJmfLdmkyXNuvj4b7nhE6Hk9ykcBcJ2N76LixawEBzadCl5I3y6cWsmjfz5FkKIrlG4S4SsD31XUTayyCqP8d02rBkFrvVc5ccpf8mIgHbc6KbvnoNyafb+Utmc7Stl65+LUMruUfhLhKg5u4BWkMDWKfCPd02LI695vvqNalOco/CXSRAzy87q3Pc023Dkli47z7RGXAlIqmncBcJUCLce+rUc0+3BeXTmF9WohnzkpMU7iIB2lvfhfVNJ9pfEnQpecfMOG+xJtVJblK4iwRoT303ffUakg/K+Utmc7Cpm/BQNOhSRFJK4S4SkP7BCNVNPURbZwddSt7asGQWgxGnuqkn6FJEUkrhLhKQvfVdRN2JNCvcg5KYMa9JdZJrFO4iAdl1PBYonYcV7kFZPb+UGcWFWqlOco7CXSQgu453YeFiIt3Tgy4lbxUWGOcuLtekOsk5CneRgDx3vJOB+tmABV1KXjt/ySz2nujStd0lpyjcRQIwMBRhf2M3gzreHrgNi2fTPTDEsXZd211yh8JdJAD7G7qJRJ1oi8I9aImV6hJzIERygcJdJAC7jseO8XYdUbgH7dxF5RQVGDsV7pJDFO4iAXjueCc2WMxQx4ygS8l704sLOXdxOTuPdQRdikjKKNxFArDreCcDDbPQZLrMcOHSOew81qlJdZIzFO4iaRYeirKvvpvBJg3JZ4qLl82mu3+Iw629QZcikhIKd5E0O9DYzWA0imvZ2Yxx4bLYz0JD85IrFO4iaZZY6lST6TLHOQvLmVZUwM5jmlQnuUHhLpJmzx3vxIaKGGybGXQpEldcWMCGJbN4TuEuOULhLpJmO+q0Ml0munjZHHad6CQS1aQ6yX4Kd5E06h+MsOdEF0ONc4IuRUa4cOlsesMRapp1+VfJfgp3kTTafaKTiDuR5jlBlyIjXLw8NgdiR11HsIWIpIDCXSSNnj3aAUBnzZxA65DTrZlfRmlJoSbVSU5QuIuk0fa6DqxvOpGQLvOaaQoKjAuWztYytJITFO4iabT9aAe9dXOCLkPGcPHyOew90UV4KBp0KSKTEki4m9m1ZrbfzKrN7OZR7n+pmW0zsyEz++sgahRJtZaeAY519OEtc4IuRcZw0bLZhCNR9tZ3BV2KyKSkPdzNrBC4A3gtsAF4i5ltGLHZUeCdwI/TW53I1ElM1Bo4MTfYQmRMG1fGfjZbj7QHXInI5ATRc78cqHb3WncPA/cANwzfwN0Pu/tOQGNjkjO213WAG91HZwVdioxh8ewZLJ49nW1HFe6S3YII96VA3bDvj8VvE8lp2+s68PZyfLAo6FLkDC5dOffkWQ0i2SqrJ9SZ2XvMbIuZbWlubg66HJExRaPOs0c76D02J+hS5CwuXTGX4x19NHT2B12KyIQFEe7HgeXDvl8Wvy1p7n6nu1/m7pdVVlampDiRqVDbEqJnYAha5wRdipzFpSvmAGhoXrJaEOG+GVhnZqvNrAS4CbgvgDpE0mZbfIJW9+E5wRYiZ3X+ktmUFBWc/JmJZKO0h7u7DwHvB34P7AV+6u67zezTZvYGADN7oZkdA24Evmlmu9Ndp0gqbT7choWLGWgqC7oUOYuSogIuWjqbreq5SxYLZGaPuz8APDDitk8O+3ozseF6kZyw+XA7fXUV6Epw2WHjyrn81xOHGRiKMK2oMOhyRJKW1RPqRLJBS88Ah1tDRBp1fnu2eMGKuYQjUXYd12I2kp0U7iJTbMvh2PDuwLGKgCuR8bp05RwAHXeXrKVwF5liWw63YdECLV6TRRaUT2d5xQytVCdZS+EuMsU2H2lnsHEORHTsNptctrKCLUfacPegSxFJmsJdZAr1hofYdbyTgWM63p5trlhdQUtPmJrmnqBLEUmawl1kCm2v6yASdSKNOt6eba5YMw+AZw61BVyJSPIU7iJTaOvhdnDorFbPPdusmjeTBeXTeKZW4S7ZR+EuMoU2HW7DO8qJDhQHXYokycy4Ys08njnUquPuknUU7iJTZDASZcvhdnqPaEg+W12xuoLGrgGOtPYGXYpIUhTuIlNk57EO+gYjRBvmBV2KTNCVa2JvzJ451BpwJSLJUbiLTJEnq2OB0LFf4Z6tqirLmFdaouPuknUU7iJT5MmaVrxtFtH+kqBLkQkyMy5fXaEZ85J1FO4iU6B/MMLWI+30HlavPdtdsbqC4x191LXpuLtkD4W7yBTYdrSdcCRKtF7hnu1eVDUfgKdqdNxdsofCXWQKPFXTCm60H9BM+Wx3zsIyFpRP47HqlqBLERk3hbvIFHiqppVoy2w8rPPbs52Z8ZK183miuoVoVOe7S3ZQuIukWGhgiGfrOug7oiH5XPGSdfNpC4XZU6/ru0t2ULiLpNgzh1qJRJ3BY/ODLkVS5CVrYz/Lxw5qaF6yg8JdJMUe2d+MRQq1nnwOWTBrOucuKufx6uagSxEZF4W7SIo9sr+Z/qPzdP32HPOStfPZfKidvnAk6FJEzkrhLpJCh1tCHG3rZaiuMuhSJMVesm4+4UiUTYe1oI1kPoW7SAo9eiA2bNt9QOGea65YPY+SwgIeO6Checl8CneRFHr0QDPWM5OB1tKgS5EUm1FSyOWrK3hE4S5ZQOEukiL9gxGeqG6h56B67bnqlecuoLqphyOtoaBLETkjhbtIimw+3MbAUJTI8QVBlyJT5FXnxX62f9zbFHAlImemcBdJkT/ta8KiBXRoydmctXJeKVWVpfxpn8JdMpvCXSQF3J2HdjfSf2Q+PlgUdDkyha4+byHPHGqlu38w6FJExqRwF0mBvfXdHOvoY+jwwqBLkSn2ynMXMBhxrVYnGU3hLpICD+1pBIeOPQr3XLdx5VxmzyjmD3sbgy5FZEwKd5EUeHBPA5GmuQz1TAu6FJliRYUFvHx9JQ/va2IoEg26HJFRKdxFJulYey+7T3TRd1C99nzxmvMX0d47yKZDWq1OMpPCXWSS/rAnNjwbOqBwzxevWL+AGcWF3P9cfdCliIxK4S4ySb/b3QCdZfQ3lwVdiqTJjJJCXnFuJb/f3UAk6kGXI3IahbvIJDR29fNMbRuhfYuDLkXS7LoLF9PSE9bQvGQkhbvIJNy/sx4HevctCboUSbNXnruA6cUFPKCheclACneRSfj1zhPQPoveBg3J55uZJUW8Yv0CfrtLQ/OSeRTuIhNU19bLs0c76NmjXnu+ig3ND/DModagSxE5hcJdZIJ+vfMEAKG9Ot6er1513gJKSwr5723Hgy5F5BQKd5EJum/7CaJNc+hvnRl0KRKQmSVFXHfhYh54rp6+cCTockROUriLTMCu453sa+imd+/SoEuRgL3p0mWEwhF+v7sh6FJETlK4i0zAvVvqMC+gY4fCPd9dsbqCpXNm8PNtx4IuReQkhbtIkvoHI/zy2RP0HVhEpK846HIkYAUFxl9dupQnqlto6OwPuhwRQOEukrSH9jTS2T9IeN/yoEuRDPHGS5cRdfjFs+q9S2ZQuIsk6adb6ijom0H7vnlBlyIZYvX8Uq5YXcHdm47qnHfJCAp3kSTUtfXy+MEWunYsAyzociSDvP1FK6lr6+PPB5qDLkVE4S6SjB88fQTc6NmpIXk51TUbFlFZPi32OyISMIW7yDj1hSP8ZFMd/TWLGGifEXQ5kmFKigp4ywuX8/D+JuraeoMuR/Kcwl1knH65/Tid/YP07VgVdCmSod5yxQoKzPjhM+q9S7AU7iLj4O5898nD0D6Lzuq5QZcjGWrx7Blcs2Eh92yqIzQwFHQ5kscU7iLj8OiBZvY3dNOzbRWaSCdn8v+9dA2dfYPcvelo0KVIHlO4i4zD1x+uoXBgOq3btCKdnNmlK+ZyxeoK7nr8EOGhaNDlSJ5SuIucxebDbWw63EbH02sgqj8ZObu/f3kV9Z39/Gq7rhYnwdB/KpGz+PrD1RQOldCxdUXQpUiWeNk5lZy3eBbf/HOtFrWRQCjcRc7guWOdPLy/mc5Nq4gOFgZdjmQJM+N9r6iiuqmHX+84EXQ5kocU7iJn8MXf7Yv12jevCroUyTLXXbCYDYtncdtDB3TsXdJO4S4yhscONvN4dQsdT64l0q+rv0lyCgqMf3rNeo629fKTLXVBlyN5RuEuMopo1GO99v4ZtG/WsXaZmJevr+SFq+by//54kN6wznuX9FG4i4zil9uPs+t4F+2PnYMP6Vi7TIyZcfNrz6W5e4CvP1wTdDmSRxTuIiN09g3y2fv34i1zaNd57TJJG1dW8MYXLOXOP9dyuCUUdDmSJxTuIiP8+4P7aQuF6fjjBWg1OkmFj772XEqKCvjUr3cHXYrkCYW7yDDPHevkh08fIbRjFV2HZwddjuSIBbOm8w9Xr+Ph/c06NU7SQuEuEtc/GOEj927HBqbR8dg5QZcjOeadV63i4uVz+L+/2kVTd3/Q5UiOU7iLxP37g/s50NhD628vYjCkU98ktYoKC/j3Gy+mLxzhY7/YhbtWrpOpo3AXAZ6saeHbjx2i77kVdO5bEHQ5kqPWLijjn16znj/sbeTuTTr3XaaOwl3yXkNnPx/48bNYTymtfzwv6HIkx/3ti1fz0nMqufW+3ew81hF0OZKjFO6S18JDUf7+R1vp6InQ8suNRAaKgi5JclxhgfEfb76EyvJp/P0Pt9EeCgddkuQghbvkLXfno794jmePdtD2u4vpPl4edEmSJypKS/j6Wy+luXuA9/5wK/2DkaBLkhyjcJe89aXf7+fn247R8/Q6OnYuDrocyTMXL5/Dl268iGcOtfGRn+4gqkvDSgppDFLy0rf+XMvXH6mhf/cKWh9dF3Q5kqduuGQpTV0DfPaBvcyZWcxnbriAggItnCSTp3CXvHP7nw7y5QcPEK5ZTOP956NV6CRIf/cXq2nrDfONR2oYjET5/JsuolABL5OkcJe8EY06X/z9Pr75aC3hA0up/+VF4DoyJcEyM/75NespKSzgq388SG84wpdvvJjpxbpgkUycwl3yQmhgiP/zk+08uKeRvudW0PTbC8DVO5LMYGb8n1efw8ySQj7/233UtfVy5/+8jIWzpgddmmQpdVsk5+0+0clf3vEED+1ppPvRDTQ9oGCXzPS/XlbFnW/fyMGmHl7/tcd5orol6JIkSyncJWcNRaLc+ecabrj9CWqPD9L+yytoe3o1OsYumeya8xfxi/99FWXTi3jrt5/hll/toi+sU+UkORqWl5z0TG0rt9y3m30N3QweWkjr7y5ioKsk6LJExuXcRbO4/wN/wb/9fh//9cRh/rS/iU9cv4FrNizETG9O5ewU7pJTth5p5+sPV/PHfU0UDsyg60+X0r5zEeqtS7aZUVLILa8/n2s2LOKW+3bxv36wlUtXzOGDr1rHy86pVMjLGSncJesNRaI8eqCZbz1Wy9O1bRRGiul55hw6nllDJKwZx5LdXlQ1jwc++Bfcs7mOrz9czTv/azMXLZvNO160iusuXMyMEv2Oy+ksVy47eNlll/mWLVuCLkPSJBJ1th5p5/e7G/j1jhM0dQ9QMDCdzmfW0PXscob69b41XS68EHbuDLqK/BAeivKLbcf45p9rOdQSonxaEa+7eAnXX7iYK9ZUUFyoaVT5xMy2uvtlo90XyH9AM7sW+CpQCHzb3b8w4v5pwPeBjUAr8GZ3P5zuOiVzRKPOwaYeNh9uY/PhNh470EJbbxjzAgYOz2dg/zLanlsIUf1zk9xVUlTATZev4M0vXM4zh9q4Z9NRfvnsce7edJSZJYW8cFUFV1XN46qq+Zy3uJwihX3eSnu4m1khcAfwauAYsNnM7nP3PcM2ezfQ7u5rzewm4IvAm9Ndq6RfeCjK0bYQNc0happ7qGmKfT7Y2EMoPASADUyjt3Y+Q0cX0b6nEg+rly75xcy4cs08rlwzj75whD8fbOaJ6haerGnl87/dB8C0ogLOXVTOhiWzWDWvlGVzZ7K8YgbL5s5k7sxiHbPPcUH8V7wcqHb3WgAzuwe4ARge7jcAt8a//hlwu5mZ58oxhCzn7gwMRYlEnaGoMxSJfT0YdSIRZygaZTDi9IaH6A1HCA0MEQoPERqI0Bv/HLst9rktFKaxq5+mrgE6+wdPaaugfzoDLaWEW5ZC2xy6auYSbpuJJsiJxMwoKeQ15y/iNecvAqCpq5+nalvZeayTPSe6+O2uBjp6T/27Ki0pZOncGcwrnUZFaQlzZhYzd2YJM0oKKSowigoLKC40igoKKCo0Sgpjn4sK4rcXFlAc366o0CiObzf8McWFBaftq7jQ9KYiTYII96VA3bDvjwFXjLWNuw+ZWScwD9CKDqMIh+FnP4Pu7jNvN/yt0Whfuz//Mfz7aPTUz22DIe7uenRSNftgIdFwEdFwIdHeEiI9pURCFURC0/GeGYRbyhhoKcXDxZNqR6ZeWJcjzygLZk3nhkuWcsMlS0/e1tk3yPH2Po6193KsvY+69l6Ot/fRFgqzr6GL9t5BOnrDpOPCdIUFxg0XL+G2N18y9Y3lsawezzSz9wDviX/bY2b7g6wnOGUzYf15wdbQDFRO4HHuEI08/9ZhItoKoSLAVT7yuf2Cgv376/rN2g4E0z4A8wn2jb/aT7L9rwBfuWlqiskzK8e6I4hwPw4sH/b9svhto21zzMyKgNnEJtadwt3vBO6cojolCWa2xf3IqLM209P2sUDaVvuJ9kefsav21b4EI4iplJuBdWa22sxKgJuA+0Zscx/wjvjXfw38ScfbRURExiftPff4MfT3A78ndircd9x9t5l9Gtji7vcBdwE/MLNqoI3YGwAREREZh0COubv7A8ADI2775LCv+4Eb012XTEqQh0eCPjSj9tW+2peMkjMr1ImIiEiMli8SERHJMQp3SSkz+4iZuZnNT3O7nzGznWa23cweNLMlaW7/S2a2L17Df5vZnDS3f6OZ7TazqJmlbeaymV1rZvvNrNrMbk5Xu/G2v2NmTWa2K53txttebmYPm9me+Ov+oTS3P93MNpnZjnj7n0pn+8PqKDSzZ83sN0G0L2NTuEvKmNly4BrgaADNf8ndL3L3S4DfAJ88y/ap9hBwgbtfBBwAPprm9ncBbwL+nK4Ghy0l/VpgA/AWM9uQrvaB7wLXprG94YaAj7j7BuBK4H1pfu4DwCvd/WLgEuBaM7syje0nfAjYG0C7chYKd0mlrwD/DKR9Ioe7dw37tjTdNbj7g+4+FP/2aWLrN6Sz/b3unu5FnE4uJe3uYSCxlHRauPufiZ1Nk3buXu/u2+JfdxMLuKVnflRK23d374l/Wxz/SOvvvJktA64Hvp3OdmV8FO6SEmZ2A3Dc3XcEWMNnzawOeCvp77kP9y7gtwG2ny6jLSWdtoDLFGa2CngB8Eya2y00s+1AE/CQu6e1feA/iL2Zj6a5XRmHrF5+VtLLzP4ALBrlro8DHyM2JB9I++7+K3f/OPBxM/so8H7glnS2H9/m48SGbH+UyrbH276kl5mVAT8H/mHE6NGUc/cIcEl8fsd/m9kF7p6W+Qdm9jqgyd23mtnL09GmJEfhLuPm7lePdruZXQisBnbEr/i0DNhmZpe7e8NUtz+KHxFbRyGl4X629s3sncDrgFdNxYqKSTz/dBnPUtI5y8yKiQX7j9z9F0HV4e4dZvYwsfkH6Zpc+GLgDWZ2HTAdmGVmP3T3t6WpfTkLDcvLpLn7c+6+wN1XufsqYsOzl6Yy2M/GzNYN+/YGYF+62o63fy2xIco3uHtvOtsO0HiWks5JFnsXexew191vC6D9ysQZGWY2A3g1afydd/ePuvuy+N/7TcSWCFewZxCFu+SKL5jZLjPbSezwQFpPTQJuB8qBh+Kn4/1nOhs3szea2THgRcD9Zvb7qW4zPoEwsZT0XuCn7r57qttNMLO7gaeA9WZ2zMzena62ifVc3w68Mv7z3h7vxabLYuDh+O/7ZmLH3HU6mpykFepERERyjHruIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSYxTuIiIiOUbhLiITEr+e+avjX/+rmX0t6JpEJEZry4vIRN0CfNrMFhC7KtobAq5HROK0Qp2ITJiZPQqUAS+PX9dcRDKAhuVFZELiVwNcDIQV7CKZReEuIkkzs8XELq17A9ATvyqeiGQIhbuIJMXMZgK/AD7i7nuBzxA7/i4iGULH3EVERHKMeu4iIiI5RuEuIiKSYxTuIiIiOUbhLiIikmMU7iIiIjlG4S4iIpJjFO4iIiI5RuEuIiKSY/5/SciUn00tnr4AAAAASUVORK5CYII=\n"}}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gulinan/mat244e",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs/Week_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="normal_dist.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Normal Distribution</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="clt.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Central Limit Theorem</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Gül İnan<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
