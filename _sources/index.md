@@ -11,7 +11,7 @@
 
 **Class Schedule:** 
 
-`Section I (CRN:24163):` Mondays between 08:30-11:30 at L-400 and <br>
+`Section I (CRN:24163):` Mondays between 08:30-11:30 at OBL3 and <br>
 `Section II (CRN:24164):` Thursdays between 11:30-13:30 at D-206.
 
 
