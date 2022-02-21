@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Course Syllabus &#8212; Spring 2022</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -41,9 +42,11 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -98,7 +101,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   COURSE INFORMATION
  </span>
@@ -115,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   LAB MATERIALS
  </span>
@@ -138,7 +141,27 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../labs/Week_01/normal_dist.html">
-     Week 01
+     Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/Week_01/normal_widget_source_function.html">
+     Calculating Probabilities Under Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/Week_01/clt.html">
+     Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/Week_01/chisquare.html">
+     Chi-square distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/Week_01/tdist.html">
+     T distribution
     </a>
    </li>
   </ul>
@@ -189,7 +212,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -225,7 +248,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+        <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -404,220 +427,38 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Course Syllabus</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Course Syllabus
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-type">
-     Course Type
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-credits">
-     Course Credits
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-prerequisites">
-     Course Prerequisites
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-description">
-     Course Description
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#class-schedule">
-     Class Schedule
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-logistics">
-     Course Logistics
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-objectives">
-     Course Objectives:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-tentative-plan">
-     Course Tentative Plan
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#student-learning-outcomes">
-     Student Learning Outcomes
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recommended-bibliography">
-     Recommended Bibliography:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#off-campus-access-to-the-itu-library-e-sources">
-     Off-Campus Access to the ITU Library E-sources:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-workload">
-     Course Workload
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selected-important-dates">
-     Selected Important Dates
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-policies">
-     Course Policies
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grading-policy">
-   Grading Policy:
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#midterm-date-april-20-2022-wednesday-at-15-30">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Midterm
-      </span>
-      <span class="pre">
-       date:
-      </span>
-      <span class="pre">
-       April
-      </span>
-      <span class="pre">
-       20,
-      </span>
-      <span class="pre">
-       2022
-      </span>
-      <span class="pre">
-       (Wednesday)
-      </span>
-      <span class="pre">
-       at
-      </span>
-      <span class="pre">
-       15:30.
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#late-submission-policy">
-     Late Submission Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#final-exam-attendance-policy">
-     Final Exam Attendance Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#make-up-exam-policy">
-     Make-Up Exam Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#class-attendance-policy">
-     Class Attendance Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#participation-policy">
-     Participation Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#e-mail-policy">
-     E-mail Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#academic-honesty-policy">
-     Academic Honesty Policy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equity-diversity-and-inclusion">
-     Equity, Diversity, and Inclusion
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#student-with-special-needs">
-     Student with Special Needs
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#itu-distance-education-policy">
-     ITU Distance Education Policy
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
+        
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="course-syllabus">
+  <section class="tex2jax_ignore mathjax_ignore" id="course-syllabus">
 <h1>Course Syllabus<a class="headerlink" href="#course-syllabus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="course-type">
+<section id="course-type">
 <h2>Course Type<a class="headerlink" href="#course-type" title="Permalink to this headline">¶</a></h2>
 <p>Must course for undergraduate students.</p>
-</div>
-<div class="section" id="course-credits">
+</section>
+<section id="course-credits">
 <h2>Course Credits<a class="headerlink" href="#course-credits" title="Permalink to this headline">¶</a></h2>
 <p>3 local credits.</p>
-</div>
-<div class="section" id="course-prerequisites">
+</section>
+<section id="course-prerequisites">
 <h2>Course Prerequisites<a class="headerlink" href="#course-prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>MAT 221/E MIN DD.</p>
-</div>
-<div class="section" id="course-description">
+</section>
+<section id="course-description">
 <h2>Course Description<a class="headerlink" href="#course-description" title="Permalink to this headline">¶</a></h2>
 <p align="justify">  This course is an introductory level statistics course on introducing following concepts: sampling from a normal distribution, maximum likelihood estimation, asymptotic properties of maximum likelihood estimators, confidence intervals and pivotal quantities, testing statistical hypothesis and test statistics, optimal tests, powerful tests: power function, Neyman-Pearson theorem, likelihood ratio tests, sufficient statistics, simple linear regression and correlation, analysis of variance. <p>
-</div>
-<div class="section" id="class-schedule">
+</section>
+<section id="class-schedule">
 <h2>Class Schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Section</span> <span class="pre">I</span> <span class="pre">(CRN:24163):</span></code> Mondays between 08:30-11:30 at L-400 and <br>
+<p><code class="docutils literal notranslate"><span class="pre">Section</span> <span class="pre">I</span> <span class="pre">(CRN:24163):</span></code> Mondays between 08:30-11:30 at OBL3 and <br>
 <code class="docutils literal notranslate"><span class="pre">Section</span> <span class="pre">II</span> <span class="pre">(CRN:24164):</span></code> Thursdays between 11:30-13:30 at D-206.</p>
-</div>
-<div class="section" id="course-logistics">
+</section>
+<section id="course-logistics">
 <h2>Course Logistics<a class="headerlink" href="#course-logistics" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> This is a hybrid course. For online attendees, each week, before the classes, a Zoom meeting invitation will be sent you via your ITU email to join the class on Mondays or Thursdays. Lectures will be automatically recorded and you will have a chance re-watch the videos after the class on 
 <a href="https://ninova.itu.edu.tr/">Ninova</a>.  Lecture materials (notes, assignments, grades etc) will be uploaded on <a href="https://ninova.itu.edu.tr/">Ninova</a>. <p>
-</div>
-<div class="section" id="course-objectives">
+</section>
+<section id="course-objectives">
 <h2>Course Objectives:<a class="headerlink" href="#course-objectives" title="Permalink to this headline">¶</a></h2>
 <p>This course aims to:</p>
 <ol class="simple">
@@ -625,8 +466,8 @@
 <li><p>To provide the applications of point estimation, confidence interval and hypothesis testing .</p></li>
 <li><p>To provide the applications of regression analysis and analysis of variance.</p></li>
 </ol>
-</div>
-<div class="section" id="course-tentative-plan">
+</section>
+<section id="course-tentative-plan">
 <h2>Course Tentative Plan<a class="headerlink" href="#course-tentative-plan" title="Permalink to this headline">¶</a></h2>
 <p>We will closely follow the weekly schedule given below.
 However, weekly class schedules are subject to change depending on the progress we make as a class.</p>
@@ -645,8 +486,8 @@ However, weekly class schedules are subject to change depending on the progress 
 <p>Week 13. Regression and correlation.</p>
 <p>Week 14. Regression analysis: Simple linear regression.</p>
 <p>Week 15. One-way and two-way analysis of variance.</p>
-</div>
-<div class="section" id="student-learning-outcomes">
+</section>
+<section id="student-learning-outcomes">
 <h2>Student Learning Outcomes<a class="headerlink" href="#student-learning-outcomes" title="Permalink to this headline">¶</a></h2>
 <p>A student who completed this course successfully is expected to:</p>
 <ol class="simple">
@@ -660,8 +501,8 @@ However, weekly class schedules are subject to change depending on the progress 
 </ol>
 <p>immediately following the course, and/or a few months after the course.</p>
 <p><strong>Textbook:</strong>  All lecture materials.</p>
-</div>
-<div class="section" id="recommended-bibliography">
+</section>
+<section id="recommended-bibliography">
 <h2>Recommended Bibliography:<a class="headerlink" href="#recommended-bibliography" title="Permalink to this headline">¶</a></h2>
 <p>Students are encouraged to consult the following sources on their own:</p>
 <ol class="simple">
@@ -671,20 +512,20 @@ However, weekly class schedules are subject to change depending on the progress 
 <li><p>Agresti, A., and Franklin, C. (2009). Statistics the art and science of learning from data. Pearson Education Limited. [Hard copy available at ITU Mustafa Inan Library with CALL #QA276.12 .A37 2009] (2018 version is available on Ninova)</p></li>
 <li><p>Chan, S.H. (2021). Introduction to Probability for Data Science. [Freely available at <a class="reference external" href="https://probability4datascience.com/index.html">https://probability4datascience.com/index.html</a>].</p></li>
 </ol>
-</div>
-<div class="section" id="off-campus-access-to-the-itu-library-e-sources">
+</section>
+<section id="off-campus-access-to-the-itu-library-e-sources">
 <h2>Off-Campus Access to the ITU Library E-sources:<a class="headerlink" href="#off-campus-access-to-the-itu-library-e-sources" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> Access to library e-sources remotely
 is possible with a library account. Users without a library account should apply for the library registration at 
 <a href="https://kutuphane.itu.edu.tr/en/register">Library register</a>.
 After setting the web configurations given at <a href="https://kutuphane.itu.edu.tr/en/services/web-browser-proxy-settings">Proxy</a>
 only once on your computer, you will able to have an access to ITU Library e-sources. <p>
-</div>
-<div class="section" id="course-workload">
+</section>
+<section id="course-workload">
 <h2>Course Workload<a class="headerlink" href="#course-workload" title="Permalink to this headline">¶</a></h2>
 <p>2 Homework, 1 midterm exam, and 1 final exam  (see the details below).</p>
-</div>
-<div class="section" id="selected-important-dates">
+</section>
+<section id="selected-important-dates">
 <h2>Selected Important Dates<a class="headerlink" href="#selected-important-dates" title="Permalink to this headline">¶</a></h2>
 <p>For the official ITU Spring 2022 academic calendar, please visit:</p>
 <p><a class="reference external" href="https://www.sis.itu.edu.tr/TR/ogrenci/akademik-takvim/akademik-takvim.php">https://www.sis.itu.edu.tr/TR/ogrenci/akademik-takvim/akademik-takvim.php</a></p>
@@ -698,13 +539,13 @@ only once on your computer, you will able to have an access to ITU Library e-sou
 <p>June 03, 2022: Last day of classes.</p>
 <p>June 06-19, 2022: Final exam week.</p>
 <p>I also honor other national and religious holidays. Students, who needs flexibility on individual-based studies overlapping with these special days, can inform me.</p>
-</div>
-<div class="section" id="course-policies">
+</section>
+<section id="course-policies">
 <h2>Course Policies<a class="headerlink" href="#course-policies" title="Permalink to this headline">¶</a></h2>
 <p>Please read the information below as a reference for how this class will be conducted.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="grading-policy">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="grading-policy">
 <h1>Grading Policy:<a class="headerlink" href="#grading-policy" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-auto table">
 <thead>
@@ -724,7 +565,7 @@ only once on your computer, you will able to have an access to ITU Library e-sou
 </tr>
 </tbody>
 </table>
-<div class="section" id="midterm-date-april-20-2022-wednesday-at-15-30">
+<section id="midterm-date-april-20-2022-wednesday-at-15-30">
 <h2><code class="docutils literal notranslate"><span class="pre">Midterm</span> <span class="pre">date:</span> <span class="pre">April</span> <span class="pre">20,</span> <span class="pre">2022</span> <span class="pre">(Wednesday)</span> <span class="pre">at</span> <span class="pre">15:30.</span></code><a class="headerlink" href="#midterm-date-april-20-2022-wednesday-at-15-30" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -734,31 +575,31 @@ only once on your computer, you will able to have an access to ITU Library e-sou
 <a class="reference external" href="http://ma117.math.metu.edu.tr/course-info/general-advice/">http://ma117.math.metu.edu.tr/course-info/general-advice/</a>.</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="late-submission-policy">
+</section>
+<section id="late-submission-policy">
 <h2>Late Submission Policy<a class="headerlink" href="#late-submission-policy" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> Students are expected to do homework assignments by themselves. Homework assignments will not be accepted after deadline. There are NO make-ups for missed homework. The students who have Covid-19 medical report during the submission periods can ask for extension only.<p>
-</div>
-<div class="section" id="final-exam-attendance-policy">
+</section>
+<section id="final-exam-attendance-policy">
 <h2>Final Exam Attendance Policy<a class="headerlink" href="#final-exam-attendance-policy" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">At</span> <span class="pre">least</span> <span class="pre">30</span> <span class="pre">points</span> <span class="pre">from</span> <span class="pre">in-semester</span> <span class="pre">studies</span></code> (e.g., (Midterm * 0.4 + Homework 1 * 0.1 + Homework 2 * 0.1) greater than or equal to 30).</p>
-</div>
-<div class="section" id="make-up-exam-policy">
+</section>
+<section id="make-up-exam-policy">
 <h2>Make-Up Exam Policy<a class="headerlink" href="#make-up-exam-policy" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> The students who miss either midterm exam or final exam due to a health problem
 can take a make-up exam as long as they have a valid medical report taken on the exam day. The medical report should be handed in immediately (within two days of its expiration). <p>
-</div>
-<div class="section" id="class-attendance-policy">
+</section>
+<section id="class-attendance-policy">
 <h2>Class Attendance Policy<a class="headerlink" href="#class-attendance-policy" title="Permalink to this headline">¶</a></h2>
 <p>The students must attend at least 70% of classes and are deemed responsible to manage his/her absences.</p>
-</div>
-<div class="section" id="participation-policy">
+</section>
+<section id="participation-policy">
 <h2>Participation Policy<a class="headerlink" href="#participation-policy" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> The students are expected to ask and answer
 questions, participate in in-class activities, and
 show their interest and engagement in the class. <p>
-</div>
-<div class="section" id="e-mail-policy">
+</section>
+<section id="e-mail-policy">
 <h2>E-mail Policy<a class="headerlink" href="#e-mail-policy" title="Permalink to this headline">¶</a></h2>
 <p>Please:</p>
 <ol class="simple">
@@ -775,31 +616,31 @@ by a short phrase summarizing the subject of your e-mail).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Lastly,</span> <span class="pre">e-mails</span> <span class="pre">asking</span> <span class="pre">for</span> <span class="pre">grade</span> <span class="pre">grubbing</span> <span class="pre">at</span> <span class="pre">the</span> <span class="pre">end</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">semester</span> <span class="pre">are</span> <span class="pre">not</span> <span class="pre">welcomed.</span></code></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="academic-honesty-policy">
+</section>
+<section id="academic-honesty-policy">
 <h2>Academic Honesty Policy<a class="headerlink" href="#academic-honesty-policy" title="Permalink to this headline">¶</a></h2>
 <p align="justify">  At every stage of the academic life, every ITU student is responsible for obeying the academic honesty policy of ITU stated below:<p>
 <p><a class="reference external" href="https://odek.itu.edu.tr/en/code-of-honor/ethics-in-university-life">https://odek.itu.edu.tr/en/code-of-honor/ethics-in-university-life</a>.</p>
-</div>
-<div class="section" id="equity-diversity-and-inclusion">
+</section>
+<section id="equity-diversity-and-inclusion">
 <h2>Equity, Diversity, and Inclusion<a class="headerlink" href="#equity-diversity-and-inclusion" title="Permalink to this headline">¶</a></h2>
 <p align="justify">  In this class, I am committed to cultural and individual differences and diversity as including, but not limited to, age, disability, ethnicity, gender, gender identity, language, national origin, race, religion, culture, and socioeconomic status and I acknowledge the value of differences. <p>
-</div>
-<div class="section" id="student-with-special-needs">
+</section>
+<section id="student-with-special-needs">
 <h2>Student with Special Needs<a class="headerlink" href="#student-with-special-needs" title="Permalink to this headline">¶</a></h2>
 <p align="justify"> I truly care about that every student in my class feels that she/he involved in this class equally. 
 If you are a student with special needs, please, let me know
 that how we can adjust the course environment, materials, and course assessment methods in accordance with your needs. 
 Furthermore, you are also invited to contact the office of students with special needs at:<p>
 <p><a class="reference external" href="http://engelsiz.itu.edu.tr/">http://engelsiz.itu.edu.tr/</a>.</p>
-</div>
-<div class="section" id="itu-distance-education-policy">
+</section>
+<section id="itu-distance-education-policy">
 <h2>ITU Distance Education Policy<a class="headerlink" href="#itu-distance-education-policy" title="Permalink to this headline">¶</a></h2>
 <p align="justify">  Sharing the lecture recordings or its piece with third parties is strictly forbidden. Furthermore, the recordings are subject to investigation by the authorities as needed. For that reason, be sure that you behave both orally and verbally responsibly in this virtual class. Please visit: <p>
 <p><a class="reference external" href="https://online.itu.edu.tr/">https://online.itu.edu.tr/</a>,</p>
 <p>for more information on distance education regulations at ITU.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -823,8 +664,8 @@ Furthermore, you are also invited to contact the office of students with special
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+        
+            <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="instructor.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -841,17 +682,19 @@ Furthermore, you are also invited to contact the office of students with special
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+        
         </div>
     </div>
     <footer class="footer">
-  <p>
-    
-      By Gül İnan<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
+    <div class="container">
+      <p>
+        
+          By Gül İnan<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
 </main>
 
 
