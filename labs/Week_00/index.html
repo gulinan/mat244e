@@ -45,15 +45,14 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Week 01" href="../Week_01/index.html" />
@@ -279,6 +278,7 @@ study on  the following resources:</p>
 <li><p><a class="reference external" href="https://wesmckinney.com/book/">Python for Data Analysis</a>.</p></li>
 </ul>
 <p>For each lab material, you can start a live session by pressing the <i class="fas fa-rocket" title="rocket"></i> button at the top-right and selecting a hosted runtime environment such as <a class="reference external" href="https://mybinder.org/">Binder</a>, <a class="reference external" href="https://colab.research.google.com/?utm_source=scs-index">Colab</a> or <a class="reference external" href="https://thebe.readthedocs.io/en/latest/">TheBe</a>.</p>
+<p>You can also build stand-alone web applications based on lab materials (Jupyter Notebooks) involving interactive widgets created with <a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/">ipwidgets (interactive HTML widgets)</a>. To do this requires installing <a class="reference external" href="https://github.com/voila-dashboards/voila">Voila</a> library first. When you launch the relevant Jupyter Notebook on the browser, a Voila button will appear in the toolbar. Then, click-on Voila button to turn the notebook into a seperate web application.  Live examples are avaible in <a class="reference external" href="https://github.com/voila-dashboards/voila">here</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
