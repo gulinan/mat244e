@@ -15,7 +15,7 @@ parts:
     - file: labs/Week_01/clt
     - file: labs/Week_01/chisquare
     - file: labs/Week_01/tdist
-     - file: labs/Week_01/f_dist
+    - file: labs/Week_01/f_dist
 
 
   
