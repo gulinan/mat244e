@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chi-square distribution &#8212; Spring 2022</title>
+    <title>F distribution &#8212; Spring 2022</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="T distribution" href="tdist.html" />
-    <link rel="prev" title="Central Limit Theorem" href="clt.html" />
+    <link rel="prev" title="T distribution" href="tdist.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -155,8 +154,8 @@ const thebe_selector_output = ".output, .cell_output"
      Central Limit Theorem
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chisquare.html">
      Chi-square distribution
     </a>
    </li>
@@ -165,8 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
      T distribution
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="f_dist.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      F distribution
     </a>
    </li>
@@ -213,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/labs/Week_01/chisquare.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/labs/Week_01/f_dist.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -233,10 +232,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/gulinan/mat244e/issues/new?title=Issue%20on%20page%20%2Flabs/Week_01/chisquare.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/gulinan/mat244e/issues/new?title=Issue%20on%20page%20%2Flabs/Week_01/f_dist.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/gulinan/mat244e/edit/main/course_class_files/labs/Week_01/chisquare.ipynb"><button
+        <a class="edit-button" href="https://github.com/gulinan/mat244e/edit/main/course_class_files/labs/Week_01/f_dist.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -256,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gulinan/mat244e/main?urlpath=lab/tree/course_class_files/labs/Week_01/chisquare.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gulinan/mat244e/main?urlpath=lab/tree/course_class_files/labs/Week_01/f_dist.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -264,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/gulinan/mat244e/blob/main/course_class_files/labs/Week_01/chisquare.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/gulinan/mat244e/blob/main/course_class_files/labs/Week_01/f_dist.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -288,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chi-square distribution</h1>
+                <h1>F distribution</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -299,9 +298,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chi-square-distribution">
-<h1>Chi-square distribution<a class="headerlink" href="#chi-square-distribution" title="Permalink to this headline">¶</a></h1>
-<p>Let’s investigate how shape of the chisquare distribution curve look likes.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="f-distribution">
+<h1>F distribution<a class="headerlink" href="#f-distribution" title="Permalink to this headline">¶</a></h1>
+<p>Let’s investigate how shape of the F distribution curve look likes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import required libraries</span>
@@ -313,28 +312,28 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Let’s now investigate how shape of the chi-square distribution curve changes with respect to degrees of freedom (<span class="math notranslate nohighlight">\(\nu\)</span>). We will define a function first to simplify our calculations.</p>
+<p>Let’s now investigate how shape of the F distribution curve changes with respect to degrees of freedom (<span class="math notranslate nohighlight">\(\nu_1\)</span> and <span class="math notranslate nohighlight">\(\nu_2\)</span>). We will define a function first to simplify our calculations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a Python function with three parameters</span>
 
-<span class="k">def</span> <span class="nf">chi2_dist_curve</span><span class="p">(</span><span class="n">dof</span><span class="p">,</span> <span class="n">ltype</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f_dist_curve</span><span class="p">(</span><span class="n">dof1</span><span class="p">,</span><span class="n">dof2</span><span class="p">,</span><span class="n">ltype</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
     
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     
     <span class="c1">#use zip for parallel iteration</span>
-    <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">cl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dof</span><span class="p">,</span> <span class="n">ltype</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">cl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dof1</span><span class="p">,</span> <span class="n">dof2</span><span class="p">,</span> <span class="n">ltype</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
         <span class="c1">#generate 10000 random variables for given degrees of freedom</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">dfn</span> <span class="o">=</span> <span class="n">d1</span><span class="p">,</span> <span class="n">dfd</span> <span class="o">=</span> <span class="n">d2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
         <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">d</span><span class="p">),</span> 
-                 <span class="n">ls</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cl</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\nu=</span><span class="si">%.1f</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">d</span><span class="p">))</span>  
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">dfn</span> <span class="o">=</span> <span class="n">d1</span><span class="p">,</span> <span class="n">dfd</span> <span class="o">=</span> <span class="n">d2</span><span class="p">),</span> 
+                 <span class="n">ls</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cl</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\nu_1=</span><span class="si">%.1f</span><span class="s1">,\nu_2=</span><span class="si">%.1f</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="n">d2</span><span class="p">))</span>  
         
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">#change as needed</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span> <span class="c1">#change as needed</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(x|\nu)$&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Chi-square distribution curve&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(x|\nu_1,\nu_2)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;F distribution curve&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -346,39 +345,25 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## change the following values as you wish</span>
 <span class="c1">## define the input arguments (values of the parameters)</span>
-<span class="n">dof_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">dof1_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">dof2_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="n">linestyles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">]</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">]</span>
 
-<span class="n">chi2_curve</span> <span class="o">=</span> <span class="n">chi2_dist_curve</span><span class="p">(</span><span class="n">dof</span> <span class="o">=</span> <span class="n">dof_values</span><span class="p">,</span> <span class="n">ltype</span> <span class="o">=</span> <span class="n">linestyles</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">colors</span><span class="p">)</span>
+<span class="n">f_curve</span> <span class="o">=</span> <span class="n">f_dist_curve</span><span class="p">(</span><span class="n">dof1</span> <span class="o">=</span> <span class="n">dof1_values</span><span class="p">,</span> <span class="n">dof2</span> <span class="o">=</span> <span class="n">dof2_values</span><span class="p">,</span> <span class="n">ltype</span> <span class="o">=</span> <span class="n">linestyles</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">colors</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">chi2_curve</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">f_curve</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chisquare_6_0.png" src="../../_images/chisquare_6_0.png" />
+<img alt="../../_images/f_dist_6_0.png" src="../../_images/f_dist_6_0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
 </pre></div>
 </div>
 </div>
 </div>
-<p>Calculate probabilities associated with chi-square distribution with ‘stats.chi2.cdf(x, df)’.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#example in class</span>
-<span class="c1"># x follows a chi-square with 5 dof</span>
-<span class="n">prob_int</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mf">12.83</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.145</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.4f</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">prob_int</span>)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9250
-</pre></div>
-</div>
-</div>
-</div>
+<p>Calculate probabilities associated with chi-square distribution with ‘stats.f.cdf(x, dfn, dfd)’.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -406,19 +391,12 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="clt.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="tdist.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Central Limit Theorem</p>
+            <p class="prev-next-title">T distribution</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="tdist.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">T distribution</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
