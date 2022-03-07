@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MLE for Normal Distribution" href="normal_mle.html" />
@@ -530,7 +531,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Define a function which calculates the MLE of the data under a Poisson distribution. This function requires two parameters: data and a vector of possible values for <span class="math notranslate nohighlight">\(\lambda\)</span> parameter. Then, the function calculates the log-likelihood of the data for each <span class="math notranslate nohighlight">\(\lambda\)</span> value, and plot log-likelihood values versus <span class="math notranslate nohighlight">\(\lambda\)</span> values. The <span class="math notranslate nohighlight">\(\hat \lambda\)</span> where the curve the attains a maximum can considered as the maximum likelihood estimate for <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_loglik</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lambd</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_loglik_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lambd</span><span class="p">):</span>
     
     <span class="c1">#fixed values</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -557,7 +558,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poisson_loglik</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gesture_data</span><span class="o">.</span><span class="n">gestures</span><span class="p">,</span> <span class="n">lambd</span> <span class="o">=</span> <span class="n">lambd</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poisson_loglik_plot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">lambd</span> <span class="o">=</span> <span class="n">lambd</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -572,7 +573,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Some optimzation routines in Python may prefer minimizing an objective function. In that case, we need to define negative log-likelihood. In such a case, the <span class="math notranslate nohighlight">\(\hat \lambda\)</span> where the curve the attains a minimum can considered as the maximum likelihood estimate for <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_negloglik</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lambd</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_negloglik_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lambd</span><span class="p">):</span>
     
     <span class="c1">#fixed values</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -601,7 +602,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poisson_negloglik</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gesture_data</span><span class="o">.</span><span class="n">gestures</span><span class="p">,</span> <span class="n">lambd</span> <span class="o">=</span> <span class="n">lambd</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poisson_negloglik_plot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">lambd</span> <span class="o">=</span> <span class="n">lambd</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -610,6 +611,52 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <img alt="../../_images/poisson_mle_20_1.png" src="../../_images/poisson_mle_20_1.png" />
+</div>
+</div>
+<p>We can also find the maximum (minimum) point where the log-likelihood (negative log-likelihood) attains through an optimization routine.</p>
+<p>First define neg-log-lik as a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_negloglik</span><span class="p">(</span><span class="n">lambd</span><span class="p">):</span>
+    
+    <span class="c1">#data is not a input argument, assuming data object is already avaible in the session.</span>
+    <span class="c1">#fixed values</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">sum_in_x_factorial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+    
+    <span class="c1">#define log_likelihood</span>
+    <span class="n">log_lik</span> <span class="o">=</span> <span class="o">-</span><span class="n">lambd</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="n">sum_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">lambd</span><span class="p">)</span><span class="o">-</span><span class="n">sum_in_x_factorial</span>
+    
+    <span class="n">neg_log_lik</span> <span class="o">=</span> <span class="o">-</span><span class="n">log_lik</span>
+    
+    <span class="k">return</span> <span class="n">neg_log_lik</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then use ‘minimize()’ function fom ‘Scipy.optiwith method=’L-BFGS-B’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<span class="n">poisson_mle</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">poisson_negloglik</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">)</span>
+<span class="n">poisson_mle</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 443.5523349036321
+ hess_inv: &lt;1x1 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([0.])
+  message: &#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 34
+      nit: 14
+     njev: 17
+   status: 0
+  success: True
+        x: array([49.4445145])
+</pre></div>
+</div>
 </div>
 </div>
 </div>
