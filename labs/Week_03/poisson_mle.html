@@ -619,7 +619,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson_negloglik</span><span class="p">(</span><span class="n">lambd</span><span class="p">):</span>
     
-    <span class="c1">#data is not a input argument, assuming data object is already avaible in the session.</span>
+    <span class="c1">#data is not an input argument, assuming data object is already available in the session.</span>
     <span class="c1">#fixed values</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="n">sum_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -635,7 +635,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Then use ‘minimize()’ function fom ‘Scipy.optiwith method=’L-BFGS-B’</p>
+<p>Then use <code class="docutils literal notranslate"><span class="pre">minimize()</span></code> function fom <code class="docutils literal notranslate"><span class="pre">Scipy.optimize</span></code> with <code class="docutils literal notranslate"><span class="pre">method='L-BFGS-B'</span></code> to find the arg min.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
