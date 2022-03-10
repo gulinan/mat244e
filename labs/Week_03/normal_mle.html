@@ -439,21 +439,21 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 150.3909064080516
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 151.41411801598798
  hess_inv: &lt;2x2 LbfgsInvHessProduct with dtype=float64&gt;
-      jac: array([-0.00030127, -0.00011937])
+      jac: array([-0.00026716, -0.00010232])
   message: &#39;CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH&#39;
      nfev: 30
       nit: 9
      njev: 10
    status: 0
   success: True
-        x: array([-0.11676488,  1.18523162])
+        x: array([-0.12614282,  1.20973678])
 </pre></div>
 </div>
 </div>
 </div>
-<p>So, <span class="math notranslate nohighlight">\(\hat \mu = 0.06547511\)</span> and <span class="math notranslate nohighlight">\(\hat \sigma^2 = 1.059509 \)</span>. Actually those values are <span class="math notranslate nohighlight">\(\hat \mu =  \bar X\)</span> and <span class="math notranslate nohighlight">\(\hat \sigma^2 = \frac{\sum_{i=1}^{n=100}(x_i-\bar x)^2}{n}\)</span>. See below.</p>
+<p>Actually those values are <span class="math notranslate nohighlight">\(\hat \mu =  \bar X\)</span> and <span class="math notranslate nohighlight">\(\hat \sigma^2 = \frac{\sum_{i=1}^{n=100}(x_i-\bar x)^2}{n}\)</span>. See below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -461,7 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.11676129537199045
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.12613955137051314
 </pre></div>
 </div>
 </div>
@@ -473,7 +473,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.18523499])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.2097398])
 </pre></div>
 </div>
 </div>
