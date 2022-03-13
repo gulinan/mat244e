@@ -19,6 +19,7 @@ parts:
   - file: labs/Week_03/index
     sections:
     - file: labs/Week_03/poisson_mle
-    - file: labs/Week_03/normal_mle
-
-  
+    - file: labs/Week_03/normal_mle 
+  - file: labs/Week_04/index
+    sections:
+    - file: labs/Week_04/mse

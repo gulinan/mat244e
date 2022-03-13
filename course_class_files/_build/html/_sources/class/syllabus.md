@@ -149,7 +149,7 @@ Please read the information below as a reference for how this class will be cond
  | 1 midterm exam     |  40%                         |  
  | 1 final exam       |  40%                         |     
 
- ### `Midterm date: April 20, 2022 (Wednesday) at 15:30.` 
+## Midterm date: April 20, 2022 (Wednesday) at 15:30.
 
 ```{important}
 * `Student studies, namely, homework and exam papers which are not written well, do not follow a proper mathematical writing language, and are hard to review, will get "0" credit for that question.`
@@ -169,7 +169,6 @@ Please read the information below as a reference for how this class will be cond
 
 <p align="justify"> The students who miss either midterm exam or final exam due to a health problem
 can take a make-up exam as long as they have a valid medical report taken on the exam day. The medical report should be handed in immediately (within two days of its expiration). <p>
-
 
 ## Class Attendance Policy
  
