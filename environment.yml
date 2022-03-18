@@ -13,6 +13,7 @@ dependencies:
   - statsmodels
   - scikit-learn
   - seaborn
+  - plotly
   - pip:
     - jupyter-book
     - ghp-import
