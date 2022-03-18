@@ -9,5 +9,3 @@ scipy
 statsmodels
 scikit-learn
 seaborn
-sphinx-thebe
-plotly

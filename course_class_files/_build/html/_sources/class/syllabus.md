@@ -137,11 +137,11 @@ June 06-19, 2022: Final exam week.
 I also honor other national and religious holidays. Students, who needs flexibility on individual-based studies overlapping with these special days, can inform me.
 
 
-## Course Policies
+# Course Policies
 
 Please read the information below as a reference for how this class will be conducted. 
 
-# Grading Policy:
+## Grading Policy:
 
  |Assessment Method   | Contribution to Final Grade  | 
  |:-------------------|:-----------------------------|

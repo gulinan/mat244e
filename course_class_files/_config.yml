@@ -14,11 +14,18 @@ repository:
   url: https://github.com/gulinan/mat244e
   path_to_book: course_class_files
   branch: main
+
 html:
   use_repository_button: true
   use_edit_page_button: true
   use_issues_button: true
+
 launch_buttons:
   colab_url: "https://colab.research.google.com"
   notebook_interface: "jupyterlab"  # or "classic"
+  binderhub_url      : "https://mybinder.org"
   thebe: true
+ 
+sphinx:
+  extra_extensions:
+    - sphinx_thebe 
