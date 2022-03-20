@@ -23,3 +23,7 @@ parts:
   - file: labs/Week_04/index
     sections:
     - file: labs/Week_04/mse
+  - file: labs/Week_05/index
+    sections:
+    - file: labs/Week_05/consistency
+    - file: labs/Week_05/asymp_mle  
