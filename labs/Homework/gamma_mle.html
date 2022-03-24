@@ -357,8 +357,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#answer-by-ibrahim-talha-kaya">
-     Answer by İbrahim Talha Kaya
+    <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
+     Answer by Muhammed Talha Kaya
     </a>
    </li>
   </ul>
@@ -389,8 +389,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#answer-by-ibrahim-talha-kaya">
-     Answer by İbrahim Talha Kaya
+    <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
+     Answer by Muhammed Talha Kaya
     </a>
    </li>
   </ul>
@@ -408,8 +408,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>🏆 Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="maximum-likelihood-estimation-of-parameters-of-gamma-distribution">
 <h2>Maximum Likelihood Estimation of Parameters of Gamma Distribution<a class="headerlink" href="#maximum-likelihood-estimation-of-parameters-of-gamma-distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="answer-by-ibrahim-talha-kaya">
-<h3>Answer by İbrahim Talha Kaya<a class="headerlink" href="#answer-by-ibrahim-talha-kaya" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="answer-by-muhammed-talha-kaya">
+<h3>Answer by Muhammed Talha Kaya<a class="headerlink" href="#answer-by-muhammed-talha-kaya" title="Permalink to this headline">¶</a></h3>
 <p>Let’s consider the maximum likelihood estimation for the parameters of Gamma distribution with unknown scale parameter <span class="math notranslate nohighlight">\(\theta\)</span> and shape parameter <span class="math notranslate nohighlight">\(\kappa\)</span> based on a random sample of size n.</p>
 <p>The probability density function of Gamma distribution with unknown parameters (<span class="math notranslate nohighlight">\(\theta, \kappa\)</span>) is:</p>
 <p><span class="math notranslate nohighlight">\(f(x;\theta, \kappa) = \frac{1}{\theta^\kappa \Gamma(\kappa)}x^{\kappa-1}e^{-\frac{x}{\theta}} \)</span> for <span class="math notranslate nohighlight">\(x&gt;0\)</span> and <span class="math notranslate nohighlight">\(\theta,\kappa&gt;0\)</span>.</p>
@@ -428,7 +428,7 @@ const thebe_selector_output = ".output, .cell_output"
 n \log(\tilde X)
 =-n \log(\bar x) + n \log(\hat{\kappa})-n \psi(\hat{\kappa}) + n  \log(\tilde X) = \log(\hat{\kappa})-\psi(\hat{\kappa}) + \log(\frac{\tilde X}{\bar x})=0\)</span>.</p>
 <p>The last ML equation cannot be solved in closed form due to non-linear form of <span class="math notranslate nohighlight">\(\kappa\)</span>. We need an iterative algorithm to find the root.</p>
-<p>İbrahim Talha suggests to use Newton-Raphson algoritm to find the root of the last ML equation iteratively as follows:</p>
+<p>Muhammed Talha suggests to use Newton-Raphson algoritm to find the root of the last ML equation iteratively as follows:</p>
 <p><span class="math notranslate nohighlight">\(\hat{\kappa}_{n+1} = \hat{\kappa}_{n}-\frac{f(\hat{\kappa}_{n})}{f'(\hat{\kappa}_{n})}\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(f(\hat{\kappa}_{n})= \log(\hat{\kappa}_{n})-\psi(\hat{\kappa}_{n}) + \log(\frac{\tilde X}{\bar x})\)</span>, <span class="math notranslate nohighlight">\(f'(\kappa_{n})= \frac{1}{\hat{\kappa}_{n}}-\psi'(\hat{\kappa}_{n})\)</span> with <span class="math notranslate nohighlight">\(\psi(\hat{\kappa}_{n}) = \frac{\Gamma'(\hat{\kappa}_{n})}{\Gamma(\hat{\kappa}_{n})}\)</span> and <span class="math notranslate nohighlight">\(\tilde X = \big(\prod_{i}^{n} x_i\big)^{\frac{1}{n}}\)</span>.</p>
 <div class="cell docutils container">
@@ -533,21 +533,21 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.2829006854079439
+Function Value in Initial Kappa = 0.3043077158634857
 
-New Kappa = 1.4386505535216507
-Function Value in New Kappa = 0.09186625830762929
+New Kappa = 1.4718431410370805
+Function Value in New Kappa = 0.10377249731535376
 
-New Kappa = 1.7518186138136727
-Function Value in New Kappa = 0.017478345357858416
+New Kappa = 1.843401264859498
+Function Value in New Kappa = 0.022211148339066122
 
-New Kappa = 1.842735189182121
-Function Value in New Kappa = 0.0009190091673867418
+New Kappa = 1.9722187837841676
+Function Value in New Kappa = 0.0015416978898563638
 
-New Kappa = 1.8480610389511172
-Function Value in New Kappa = 2.8247289414196075e-06
+New Kappa = 1.9825441609804613
+Function Value in New Kappa = 8.540132265588696e-06
 
-Theta Hat = 2.219957325606046
+Theta Hat = 2.0148144344948076
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
