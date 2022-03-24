@@ -15,4 +15,3 @@
 `Section II (CRN:24164):` Thursdays between 11:30-14:30 at D-206.
 
 
-
