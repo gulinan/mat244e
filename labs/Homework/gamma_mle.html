@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Week_06/confidence_interval.html">
-     Interpretation of Confidence Interval via Simulation
+     Interpretation of Confidence Interval
     </a>
    </li>
    <li class="toctree-l2">
@@ -553,21 +553,24 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.30455808484656566
+Function Value in Initial Kappa = 0.33003926851099363
 
-New Kappa = 1.4722313496865376
-Function Value in New Kappa = 0.10391447423101963
+New Kappa = 1.5117410995574874
+Function Value in New Kappa = 0.11867680541376391
 
-New Kappa = 1.8445090025938107
-Function Value in New Kappa = 0.02227063982520816
+New Kappa = 1.9618225917437626
+Function Value in New Kappa = 0.0288342761364484
 
-New Kappa = 1.9738371973612785
-Function Value in New Kappa = 0.0015506298516803074
+New Kappa = 2.1527775983071384
+Function Value in New Kappa = 0.0027081248228535415
 
-New Kappa = 1.9842405373746494
-Function Value in New Kappa = 8.646775581100385e-06
+New Kappa = 2.1746244406954793
+Function Value in New Kappa = 2.8831354150771205e-05
 
-Theta Hat = 1.9776094276847094
+New Kappa = 2.1748620602375826
+Function Value in New Kappa = 3.3386164943749463e-09
+
+Theta Hat = 1.841364518503816
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
