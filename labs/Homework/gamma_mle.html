@@ -235,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   🏆 Homework
+   🏆  Homework
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Week_06/confidence_interval.html">
-     Interpretation of Confidence Interval
+     Interpretation of Confidence Interval via Simulation
     </a>
    </li>
    <li class="toctree-l2">
@@ -378,13 +378,11 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#maximum-likelihood-estimation-of-parameters-of-gamma-distribution">
    Maximum Likelihood Estimation of Parameters of Gamma Distribution
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
-     Answer by Muhammed Talha Kaya
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
+   Answer by Muhammed Talha Kaya
+  </a>
  </li>
 </ul>
 
@@ -396,7 +394,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🏆 Homework</h1>
+                <h1>🏆  Homework</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -410,13 +408,11 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#maximum-likelihood-estimation-of-parameters-of-gamma-distribution">
    Maximum Likelihood Estimation of Parameters of Gamma Distribution
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
-     Answer by Muhammed Talha Kaya
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#answer-by-muhammed-talha-kaya">
+   Answer by Muhammed Talha Kaya
+  </a>
  </li>
 </ul>
 
@@ -428,11 +424,12 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="homework">
-<h1>🏆 Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h1>
+<h1>🏆  Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="maximum-likelihood-estimation-of-parameters-of-gamma-distribution">
 <h2>Maximum Likelihood Estimation of Parameters of Gamma Distribution<a class="headerlink" href="#maximum-likelihood-estimation-of-parameters-of-gamma-distribution" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="answer-by-muhammed-talha-kaya">
-<h3>Answer by Muhammed Talha Kaya<a class="headerlink" href="#answer-by-muhammed-talha-kaya" title="Permalink to this headline">¶</a></h3>
+<h2>Answer by Muhammed Talha Kaya<a class="headerlink" href="#answer-by-muhammed-talha-kaya" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider the maximum likelihood estimation for the parameters of Gamma distribution with unknown scale parameter <span class="math notranslate nohighlight">\(\theta\)</span> and shape parameter <span class="math notranslate nohighlight">\(\kappa\)</span> based on a random sample of size n.</p>
 <p>The probability density function of Gamma distribution with unknown parameters (<span class="math notranslate nohighlight">\(\theta, \kappa\)</span>) is:</p>
 <p><span class="math notranslate nohighlight">\(f(x;\theta, \kappa) = \frac{1}{\theta^\kappa \Gamma(\kappa)}x^{\kappa-1}e^{-\frac{x}{\theta}} \)</span> for <span class="math notranslate nohighlight">\(x&gt;0\)</span> and <span class="math notranslate nohighlight">\(\theta,\kappa&gt;0\)</span>.</p>
@@ -451,7 +448,7 @@ const thebe_selector_output = ".output, .cell_output"
 n \log(\tilde X)
 =-n \log(\bar x) + n \log(\hat{\kappa})-n \psi(\hat{\kappa}) + n  \log(\tilde X) = \log(\hat{\kappa})-\psi(\hat{\kappa}) + \log(\frac{\tilde X}{\bar x})=0\)</span>.</p>
 <p>The last ML equation cannot be solved in closed form due to non-linear form of <span class="math notranslate nohighlight">\(\kappa\)</span>. We need an iterative algorithm to find the root.</p>
-<p>Muhammed Talha suggests to use Newton-Raphson algoritm to find the root of the last ML equation iteratively as follows:</p>
+<p>İbrahim Talha suggests to use Newton-Raphson algoritm to find the root of the last ML equation iteratively as follows:</p>
 <p><span class="math notranslate nohighlight">\(\hat{\kappa}_{n+1} = \hat{\kappa}_{n}-\frac{f(\hat{\kappa}_{n})}{f'(\hat{\kappa}_{n})}\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(f(\hat{\kappa}_{n})= \log(\hat{\kappa}_{n})-\psi(\hat{\kappa}_{n}) + \log(\frac{\tilde X}{\bar x})\)</span>, <span class="math notranslate nohighlight">\(f'(\kappa_{n})= \frac{1}{\hat{\kappa}_{n}}-\psi'(\hat{\kappa}_{n})\)</span> with <span class="math notranslate nohighlight">\(\psi(\hat{\kappa}_{n}) = \frac{\Gamma'(\hat{\kappa}_{n})}{\Gamma(\hat{\kappa}_{n})}\)</span> and <span class="math notranslate nohighlight">\(\tilde X = \big(\prod_{i}^{n} x_i\big)^{\frac{1}{n}}\)</span>.</p>
 <div class="cell docutils container">
@@ -479,13 +476,13 @@ n \log(\tilde X)
 <span class="c1">#define x_tilda based on the data</span>
 <span class="k">def</span> <span class="nf">x_tilda</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 
-	<span class="n">x_tilda</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="n">x_tilda</span> <span class="o">=</span> <span class="mi">0</span>
 
 	<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
 
-		<span class="n">x_tilda</span> <span class="o">=</span> <span class="n">x_tilda</span><span class="o">*</span><span class="n">item</span>
+		<span class="n">x_tilda</span> <span class="o">=</span> <span class="n">x_tilda</span><span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
-	<span class="k">return</span> <span class="n">x_tilda</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x_tilda</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
 
 <span class="n">x_tilda</span> <span class="o">=</span> <span class="n">x_tilda</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
@@ -556,21 +553,21 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.30748207263019367
+Function Value in Initial Kappa = 0.30455808484656566
 
-New Kappa = 1.4767651275313294
-Function Value in New Kappa = 0.10557712006694775
+New Kappa = 1.4722313496865376
+Function Value in New Kappa = 0.10391447423101963
 
-New Kappa = 1.857509717069824
-Function Value in New Kappa = 0.022972579312216856
+New Kappa = 1.8445090025938107
+Function Value in New Kappa = 0.02227063982520816
 
-New Kappa = 1.9929278750179307
-Function Value in New Kappa = 0.001658113456544541
+New Kappa = 1.9738371973612785
+Function Value in New Kappa = 0.0015506298516803074
 
-New Kappa = 2.0042824748453953
-Function Value in New Kappa = 9.986700722386388e-06
+New Kappa = 1.9842405373746494
+Function Value in New Kappa = 8.646775581100385e-06
 
-Theta Hat = 1.9298737111681121
+Theta Hat = 1.9776094276847094
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
@@ -578,8 +575,7 @@ Theta Hat = 1.9298737111681121
 </div>
 </div>
 </div>
-<p>🏆:  ☕ + 🍰 at Espresso Lab, MED.</p>
-</div>
+<p>🏆: ☕ + 🍰 at Espresso Lab, MED.</p>
 </div>
 </div>
 
