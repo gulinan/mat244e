@@ -260,6 +260,33 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week_07/index.html">
+   Week 07
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_07/ci_single_population.html">
+     Confidence Intervals for Single Normal Population
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_07/ci_two_population.html">
+     Confidence Intervals for Two Normal Populations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_07/ci_asym.html">
+     Asymptotic Confidence Intervals
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -553,24 +580,24 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.33003926851099363
+Function Value in Initial Kappa = 0.3100922436104332
 
-New Kappa = 1.5117410995574874
-Function Value in New Kappa = 0.11867680541376391
+New Kappa = 1.4808123179565387
+Function Value in New Kappa = 0.10706833956356632
 
-New Kappa = 1.9618225917437626
-Function Value in New Kappa = 0.0288342761364484
+New Kappa = 1.8692147576359546
+Function Value in New Kappa = 0.023610341379726396
 
-New Kappa = 2.1527775983071384
-Function Value in New Kappa = 0.0027081248228535415
+New Kappa = 2.0102693482972596
+Function Value in New Kappa = 0.0017591283459490459
 
-New Kappa = 2.1746244406954793
-Function Value in New Kappa = 2.8831354150771205e-05
+New Kappa = 2.022539695235156
+Function Value in New Kappa = 1.1342174107031866e-05
 
-New Kappa = 2.1748620602375826
-Function Value in New Kappa = 3.3386164943749463e-09
+New Kappa = 2.022619839826229
+Function Value in New Kappa = 4.776792295047017e-10
 
-Theta Hat = 1.841364518503816
+Theta Hat = 2.115928543637261
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
