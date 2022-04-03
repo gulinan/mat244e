@@ -14,4 +14,4 @@ You can also build stand-alone web applications based on lab materials (Jupyter 
 
 You can go further and host your Voila applications on [`HEROKU`](https://www.heroku.com/) by following the instructions given in [here](https://pythonforundergradengineers.com/deploy-jupyter-notebook-voila-heroku.html).
 
-Starting from Week 07, I started to include [`session_info`](https://pypi.org/project/session-info/) so that you can better understand the packages and packages version I used for each session. 
+Starting from Week 07, I started to include [`session_info`](https://pypi.org/project/session-info/) so that you can better understand the packages and package versions I used for each session. 
