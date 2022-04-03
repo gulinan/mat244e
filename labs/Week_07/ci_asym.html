@@ -466,51 +466,22 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">expon</span>
 
-<span class="k">def</span> <span class="nf">CI_mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">CI</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">confidence</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">Xbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> 
-    <span class="n">quantile</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># when n is large this factor</span>
+                                       <span class="c1"># have little effect</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span>  <span class="mi">2</span><span class="p">)</span>
     <span class="n">lower</span> <span class="o">=</span> <span class="n">Xbar</span> <span class="o">-</span> <span class="n">quantile</span> <span class="o">*</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">upper</span> <span class="o">=</span> <span class="n">Xbar</span> <span class="o">+</span> <span class="n">quantile</span> <span class="o">*</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myrv</span> <span class="o">=</span> <span class="n">expon</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">myrv</span> <span class="o">=</span> <span class="n">expon</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;expon&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#myrv = expon(scale=4)</span>
-<span class="c1">#X = myrv.rvs(size=(40,))</span>
-<span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">CI</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">)</span>
-<span class="p">(</span><span class="n">L</span> <span class="o">&lt;</span> <span class="n">myrv</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">U</span> <span class="o">&gt;</span> <span class="n">myrv</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, (3.9041437649836688, 4.130277813595987))
+<span class="n">myrv</span> <span class="o">=</span> <span class="n">expon</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -533,10 +504,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;89 of 100 cover the true mean&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;85 of 100 cover the true mean&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/ci_asym_7_1.png" src="../../_images/ci_asym_7_1.png" />
+<img alt="../../_images/ci_asym_5_1.png" src="../../_images/ci_asym_5_1.png" />
 </div>
 </div>
 </div>
@@ -546,7 +517,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="math notranslate nohighlight">\(\big[\hat{p} - z_{1-\alpha/2}*\sqrt\frac{\hat{p}(1-\hat{p})}{n}, \bar{X} + z_{1-\alpha/2}*\frac{s}{\sqrt n}\big]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportion_confint</span>   
 </pre></div>
 </div>
