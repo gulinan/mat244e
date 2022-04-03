@@ -11,3 +11,4 @@ scikit-learn
 seaborn
 sphinx-thebe
 plotly
+session_info
