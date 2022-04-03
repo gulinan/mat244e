@@ -32,3 +32,8 @@ parts:
     sections:
      - file: labs/Week_06/confidence_interval
      - file: labs/Week_06/width
+  - file: labs/Week_07/index
+    sections:
+     - file: labs/Week_07/ci_single_population
+     - file: labs/Week_07/ci_two_population
+     - file: labs/Week_07/ci_asym
