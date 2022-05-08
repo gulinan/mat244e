@@ -287,6 +287,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week_11/index.html">
+   Week 11
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_11/single_pop.html">
+     Hypothesis testing for single population mean when the variance
+     <span class="math notranslate nohighlight">
+      \(\sigma^{2}\)
+     </span>
+     is known
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -580,21 +601,21 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.2998246166650247
+Function Value in Initial Kappa = 0.2784164411496126
 
-New Kappa = 1.4648918890736515
-Function Value in New Kappa = 0.10124072759312797
+New Kappa = 1.4316975260901093
+Function Value in New Kappa = 0.08943231763284043
 
-New Kappa = 1.8237111569145137
-Function Value in New Kappa = 0.021162208620147505
+New Kappa = 1.7334040813736316
+Function Value in New Kappa = 0.016574441933510764
 
-New Kappa = 1.9436646365283192
-Function Value in New Kappa = 0.001388754025131833
+New Kappa = 1.817692778500562
+Function Value in New Kappa = 0.0008195485401492064
 
-New Kappa = 1.9526814055994688
-Function Value in New Kappa = 6.824764740009925e-06
+New Kappa = 1.8223055544581122
+Function Value in New Kappa = 2.2138024484696928e-06
 
-Theta Hat = 2.0281269091795715
+Theta Hat = 2.22275719805944
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
