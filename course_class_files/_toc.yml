@@ -37,3 +37,6 @@ parts:
      - file: labs/Week_07/ci_single_population
      - file: labs/Week_07/ci_two_population
      - file: labs/Week_07/ci_asym
+  - file: labs/Week_11/index
+    sections:
+     - file: labs/Week_11/single_pop  
