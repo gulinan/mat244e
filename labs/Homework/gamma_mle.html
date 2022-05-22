@@ -308,6 +308,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week_13/index.html">
+   Week 13
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week_13/corr.html">
+     Visualize Direction of Relationships
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -601,21 +618,24 @@ n \log(\tilde X)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial Kappa = 1
-Function Value in Initial Kappa = 0.30192760668222074
+Function Value in Initial Kappa = 0.31107561370832415
 
-New Kappa = 1.4681526720362779
-Function Value in New Kappa = 0.10242588723333013
+New Kappa = 1.482337078623465
+Function Value in New Kappa = 0.10763185393536623
 
-New Kappa = 1.8329135053730279
-Function Value in New Kappa = 0.021650414895526326
+New Kappa = 1.8736490597825906
+Function Value in New Kappa = 0.023853350921783756
 
-New Kappa = 1.9569595975976486
-Function Value in New Kappa = 0.0014588702649314111
+New Kappa = 2.0168772422589787
+Function Value in New Kappa = 0.0017984621630098285
 
-New Kappa = 1.966570065888538
-Function Value in New Kappa = 7.585303710477831e-06
+New Kappa = 2.0295097853784014
+Function Value in New Kappa = 1.1895447330489972e-05
 
-Theta Hat = 2.0242953208582852
+New Kappa = 2.0295944563490824
+Function Value in New Kappa = 5.273850245401945e-10
+
+Theta Hat = 1.9319718166411226
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nsort_data = np.sort(data)\n\nplt.plot(sort_data, stats.gamma.pdf(sort_data, a = 2, scale = 2))\n\nplt.show() \n&#39;
