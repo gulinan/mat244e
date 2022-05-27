@@ -42,4 +42,5 @@ parts:
      - file: labs/Week_11/single_pop 
   - file: labs/Week_13/index
     sections:
-     - file: labs/Week_13/corr    
+     - file: labs/Week_13/corr
+     - file: labs/Week_13/reg    
